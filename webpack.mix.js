@@ -20,6 +20,7 @@ mix.js('resources/js/app.js', 'public/js')
    .purgeCss()
    .browserSync('statera.test')
    .disableNotifications();
+ 
 
 if (mix.inProduction()) {
   mix.version();

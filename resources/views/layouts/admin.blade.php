@@ -14,7 +14,7 @@
 </head>
 <body class="bg-teal-lightest h-screen antialiased">
     <div id="app">
-        <nav class="bg-brand-dark h-12 shadow mb-8 px-6 md:px-0">
+        <nav class="bg-grey-dark h-12 shadow mb-8 px-6 md:px-0">
             <div class="container mx-auto h-full">
                 <div class="flex items-center justify-center h-12">
                     <div class="mr-6">

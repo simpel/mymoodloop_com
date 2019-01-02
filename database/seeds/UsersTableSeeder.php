@@ -14,26 +14,26 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-		$role_user = Role::where('name', 'User')->first();
-		$role_admin = Role::where('name', 'Admin')->first();
+
 
 		User::truncate();
 
 		$user = new User();
 		$user->firstname = 'User';
 		$user->lastname = 'Ipsum';
+		$user->slug = str_slug($user->firstname.' a '.$user->lastname, '-');
 		$user->email = 'joel.sanden@regionhalland.se';
 		$user->password = bcrypt('secret');
 		$user->save();
-		$user->roles()->attach($role_user);
+
 
 		$admin = new User();
 		$admin->firstname = 'Admin';
 		$admin->lastname = 'Ipsum';
+		$admin->slug = str_slug($admin->firstname.' v '.$admin->lastname, '-');
 		$admin->email = 'me@joelsanden.se';
 		$admin->password = bcrypt('secret');
 		$admin->save();
-		$admin->roles()->attach($role_admin);
 
     }
 }

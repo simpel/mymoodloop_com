@@ -12,22 +12,12 @@
                     {{ csrf_field() }}
 
                     <div class="flex items-stretch mb-3">
-                        <label for="firstname" class="text-right font-semibold text-grey-dark text-sm pt-2 pr-3 align-middle w-1/4">Firstname:</label>
+                        <label for="name" class="text-right font-semibold text-grey-dark text-sm pt-2 pr-3 align-middle w-1/4">Name</label>
                         <div class="flex flex-col w-3/4">
-                            <input id="firstname" type="text" class="flex-grow h-8 px-2 border rounded {{ $errors->has('firstname') ? 'border-red-dark' : 'border-grey-light' }}" name="firstname" value="{{ old('firstname') }}" autofocus>
-                            {!! $errors->first('firstname', '<span class="text-red-dark text-sm mt-2">:message</span>') !!}
+                            <input id="name" type="text" class="flex-grow h-8 px-2 border rounded {{ $errors->has('name') ? 'border-red-dark' : 'border-grey-light' }}" name="name" value="{{ old('name') }}" autofocus>
+                            {!! $errors->first('name', '<span class="text-red-dark text-sm mt-2">:message</span>') !!}
                         </div>
                     </div>
-
-					<div class="flex items-stretch mb-3">
-                        <label for="lastname" class="text-right font-semibold text-grey-dark text-sm pt-2 pr-3 align-middle w-1/4">Lastname:</label>
-                        <div class="flex flex-col w-3/4">
-                            <input id="lastname" type="text" class="flex-grow h-8 px-2 border rounded {{ $errors->has('lastname') ? 'border-red-dark' : 'border-grey-light' }}" name="lastname" value="{{ old('lastname') }}" >
-                            {!! $errors->first('lastname', '<span class="text-red-dark text-sm mt-2">:message</span>') !!}
-                        </div>
-                    </div>
-
-
 
                     <div class="flex items-stretch mb-3">
                         <label for="email" class="text-right font-semibold text-grey-dark text-sm pt-2 pr-3 align-middle w-1/4">E-Mail Address</label>
@@ -40,7 +30,7 @@
                     <div class="flex items-stretch mb-4">
                         <label for="password" class="text-right font-semibold text-grey-dark text-sm pt-2 pr-3 align-middle w-1/4">Password</label>
                         <div class="flex flex-col w-3/4">
-                            <input id="password" type="password" class="flex-grow h-8 px-2 rounded border {{ $errors->has('password') ? 'border-red-dark' : 'border-grey-light' }}" name="password" autocomplete="password" required>
+                            <input id="password" type="password" class="flex-grow h-8 px-2 rounded border {{ $errors->has('password') ? 'border-red-dark' : 'border-grey-light' }}" name="password" required>
                             {!! $errors->first('password', '<span class="text-red-dark text-sm mt-2">:message</span>') !!}
                         </div>
                     </div>
@@ -48,7 +38,7 @@
                     <div class="flex items-stretch mb-4">
                         <label for="password_confirmation" class="text-right font-semibold text-grey-dark text-sm pt-2 pr-3 align-middle w-1/4">Confirm Password</label>
                         <div class="flex flex-col w-3/4">
-                            <input id="password_confirmation" type="password" class="flex-grow h-8 px-2 rounded border {{ $errors->has('password_confirmation') ? 'border-red-dark' : 'border-grey-light' }}" name="password_confirmation" autocomplete="password" required>
+                            <input id="password_confirmation" type="password" class="flex-grow h-8 px-2 rounded border {{ $errors->has('password_confirmation') ? 'border-red-dark' : 'border-grey-light' }}" name="password_confirmation" required>
                             {!! $errors->first('password_confirmation', '<span class="text-red-dark text-sm mt-2">:message</span>') !!}
                         </div>
                     </div>
