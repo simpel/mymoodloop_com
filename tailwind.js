@@ -46,6 +46,9 @@ let defaultConfig = require('tailwindcss/defaultConfig')()
 let colors = {
   	'transparent': 'transparent',
 
+	'light': 'rgba(255,255,255,0.9)',
+	'dark': 'rgba(0,0,0,0.5)',
+
 	'black': '#22292f',
 	'grey-darkest': '#3d4852',
 	'grey-darker': '#606f7b',
@@ -56,29 +59,39 @@ let colors = {
 	'grey-lightest': '#f8fafc',
 	'white': '#ffffff',
 
-	'brand-light': '#eefcfd',
-	'brand': '#b6f3f7',
-	'brand-dark': '#587273',
+	'primary-darkest' : '#493C17',
+	'primary-darker' : '#91792E',
+	'primary-dark' : '#DAB544',
+	'primary' : '#F2C94C',
+	'primary-light' : '#F6D982',
+	'primary-lighter' : '#FAE9B7',
+	'primary-lightest' : '#FEFAED',
 
-	'cta-light': '#feedf4',
-	'cta': '#f7b6d2',
-	'cta-dark': '#745763',
+	'secondary-darkest' : '#17492E',
+	'secondary-darker' : '#2E915B',
+	'secondary-dark' : '#44DA89',
+	'secondary' : '#4CF298',
+	'secondary-light' : '#82F6B7',
+	'secondary-lighter' : '#B7FAD6',
+	'secondary-lightest' : '#EDFEF5',
 
-	'info-light': '#def8ff',
-	'info': '#5de1fd',
-	'info-dark': '#356a76',
+	'cta-darkest' : '#491717',
+	'cta-darker' : '#912E2E',
+	'cta-dark' : '#DA4444',
+	'cta' : '#F24C4C',
+	'cta-light' : '#F68282',
+	'cta-lighter' : '#FAB7B7',
+	'cta-lightest' : '#FEEDED',
 
-	'warning-light': '#fff7d6',
-	'warning': '#f8e154',
-	'warning-dark': '#756a2e',
+	'red-darkest' : '#460909',
+	'red-darker' : '#8B1212',
+	'red-dark' : '#D11B1B',
+	'red' : '#E81E1E',
+	'red-light' : '#EF6262',
+	'red-lighter' : '#F6A5A5',
+	'red-lightest' : '#FDE9E9',
 
-	'success-light': '#defcdb',
-	'success': '#60f06d',
-	'success-dark': '#367138',
 
-	'danger-light': '#ffdbd6',
-	'danger': '#fd6a65',
-	'danger-dark': '#783733',
 }
 
 module.exports = {
@@ -147,6 +160,7 @@ module.exports = {
 
   fonts: {
     'sans': [
+	  '"Inter UI"',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -159,27 +173,12 @@ module.exports = {
       'Droid Sans',
       'Helvetica Neue',
       'sans-serif',
-    ],
-    'serif': [
-      'Constantia',
-      'Lucida Bright',
-      'Lucidabright',
-      'Lucida Serif',
-      'Lucida',
-      'DejaVu Serif',
-      'Bitstream Vera Serif',
-      'Liberation Serif',
-      'Georgia',
-      'serif',
-    ],
-    'mono': [
-      'Menlo',
-      'Monaco',
-      'Consolas',
-      'Liberation Mono',
-      'Courier New',
-      'monospace',
-    ],
+  	],
+  	'logo': [
+		'"Sacramento"',
+		'cursive',
+		'serif',
+	],
   },
 
 
@@ -213,6 +212,7 @@ module.exports = {
     '3xl': '1.875rem',  // 30px
     '4xl': '2.25rem',   // 36px
     '5xl': '3rem',      // 48px
+    '10xl': '6rem',      // 96px
   },
 
 
@@ -280,8 +280,9 @@ module.exports = {
 
   tracking: {
     'tight': '-0.05em',
-    'normal': '0',
+    'normal': '-0.002em',
     'wide': '0.05em',
+	'h1': '-0.03em',
   },
 
 

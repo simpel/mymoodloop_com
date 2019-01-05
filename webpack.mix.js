@@ -3,6 +3,28 @@ const mix = require('laravel-mix');
 require('laravel-mix-tailwind');
 require('laravel-mix-purgecss');
 
+
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+
+mix.webpackConfig({
+    plugins: [
+        new CopyWebpackPlugin([{
+            from: 'resources/images',
+            to: 'images', // Laravel mix will place this in 'public/img'
+        }]),
+        new ImageminPlugin({
+            test: /\.(jpe?g|png|gif|svg)$/i,
+            plugins: [
+                imageminMozjpeg({
+                    quality: 80,
+                })
+            ]
+        })
+    ]
+});
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -20,7 +42,7 @@ mix.js('resources/js/app.js', 'public/js')
    .purgeCss()
    .browserSync('statera.test')
    .disableNotifications();
- 
+
 
 if (mix.inProduction()) {
   mix.version();
