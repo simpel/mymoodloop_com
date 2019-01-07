@@ -567,15 +567,58 @@ a {
   text-decoration: none;
   font-family: "Inter UI", system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 600;
+  color: #22292f;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
+.logo {
+  font-family: "Sacramento", cursive, serif;
+  font-size: 2.25rem;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 3rem;
+  }
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+#menu .links {
+}
+
+#menu .links a {
+  display: block;
+  padding: 1.5rem;
+}
+
+#menu .links a.active {
+  display: block;
+  padding: 1.5rem;
+  color: #f2c94c;
+  background-color: #fefaed;
+}
+
+@media (min-width: 768px) {
+  #menu .links a {
+    margin-right: 1.5rem;
+    display: inline-block;
+    padding: 0;
+  }
+}
+
 .btn {
   border-radius: .25rem;
   background-color: #f24c4c;
+  border-width: 1px;
+  border-color: #f24c4c;
   color: #fff;
   padding-top: .5rem;
   padding-bottom: .5rem;
@@ -583,6 +626,14 @@ a:hover {
   padding-right: 1.5rem;
   text-align: center;
   display: inline-block;
+  font-weight: 600;
+}
+
+.btn:hover {
+  text-decoration: none;
+  background-color: transparent;
+  color: #fff;
+  color: #f24c4c;
 }
 
 .btn-large {

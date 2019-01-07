@@ -29,15 +29,52 @@
 	}
 
 	a {
-		@apply no-underline font-sans font-semibold;
+		@apply no-underline font-sans font-semibold text-black;
 	}
 
 	a:hover {
 		@apply underline;
 	}
 
+	.logo {
+		@apply font-logo text-4xl tracking-tight font-normal;
+	}
+
+	@media (min-width: config('screens.md')) {
+		.logo {
+			@apply text-5xl;
+		}
+	}
+
+	.logo:hover {
+		@apply no-underline
+	}
+
+	#menu .links {
+		@apply ;
+	}
+
+	#menu .links a {
+		@apply block p-6;
+	}
+
+	#menu .links a.active {
+		@apply block p-6 text-primary bg-primary-lightest;
+	}
+
+	@media (min-width: config('screens.md')) {
+		#menu .links a {
+			@apply mr-6 inline-block p-0;
+		}
+	}
+
+
 	.btn {
-		@apply rounded bg-cta text-white py-2 px-6 text-center inline-block;
+		@apply rounded bg-cta border border-cta text-white py-2 px-6 text-center inline-block font-semibold;
+	}
+
+	.btn:hover {
+		@apply no-underline bg-transparent text-white text-cta;
 	}
 
 	.btn-large {

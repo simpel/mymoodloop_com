@@ -15,11 +15,12 @@
 
 Auth::routes();
 
-Route::get('/', 'PagesController@index')->name('home');
+Route::get('/', 'PagesController@index')->name('start');
 Route::get('/about', 'PagesController@about')->name('about');
 
 
 
 
-Route::get('/{username}', 'UserController@index')->name('home');
+Route::get('/you', 'UserController@index')->name('you');
+Route::get('/you/profile', 'UserController@edit')->name('you.profile');
 Route::get('/admin', 'AdminController@index')->name('home');
