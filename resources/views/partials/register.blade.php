@@ -7,7 +7,7 @@
 			<div class="w-100 md:w-1/2 md:mr-6 mb-8 lg:mb-0">
 				<label for="firstname">First name</label>
 
-				<input placeholder="Sigmund" id="firstname" autocomplete="firstname" type="text" class="{{ $errors->has('firstname') ? 'border-red-dark' : 'border-grey-light' }}" name="firstname" value="{{ old('firstname') }}" autofocus>
+				<input placeholder="Sigmund" id="firstname" autocomplete="firstname" type="text" class="{{ $errors->has('firstname') ? 'border-red-dark' : 'border-grey-light' }}" name="firstname" value="{{ old('firstname') }}">
 				{!! $errors->first('name', '<span class="block text-red-dark text-sm mt-2">:message</span>') !!}
 
 			</div>

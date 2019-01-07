@@ -18,7 +18,7 @@ Auth::routes();
 Route::get('/', 'PagesController@index')->name('start');
 Route::get('/about', 'PagesController@about')->name('about');
 
-
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 
 
 Route::get('/you', 'UserController@index')->name('you');

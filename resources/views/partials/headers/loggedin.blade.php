@@ -6,7 +6,7 @@
 
   <div class="flex items-center flex-no-shrink text-black mr-6 pl-6">
 		<a href="{{ route('you') }}" class="logo">
-    		{{ config('app.name', 'Laravel') }}
+    		{{ config('app.logo', 'Laravel') }}
 		</a>
   </div>
   <div class="block md:hidden pr-6">
