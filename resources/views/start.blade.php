@@ -19,16 +19,16 @@
 	</div>
 
 	<a name="features"></a>
-	<div class="p-6 lg:py-32 max-w-xl mx-auto">
+	<div class="px-6 my-12 max-w-xl mx-auto">
 		@include('partials.features')
 	</div>
 
 	<a name="register"></a>
-	<div class="flex justify-center m-24">
-		<div class="w-full max-w-sm self-center">
-			<h2 class="text-center mb-10">Let's become friends</h2>
-			@include('partials.register')
-		</div>
+	<div class="px-6 my-12 md:max-w-sm mx-auto">
+
+		<h2 class="text-center mb-10">Let's become friends</h2>
+		@include('partials.register')
+
 	</div>
 
 
