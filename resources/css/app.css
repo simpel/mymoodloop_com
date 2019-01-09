@@ -37,7 +37,7 @@
 	}
 
 	.logo {
-		@apply font-logo text-4xl tracking-normal font-normal;
+		@apply font-logo text-4xl tracking-normal font-normal leading-none;
 	}
 
 	@media (min-width: config('screens.md')) {
@@ -70,15 +70,41 @@
 
 
 	.btn {
-		@apply rounded bg-cta border border-cta text-cta-darkest py-2 px-6 text-center inline-block font-semibold;
+		@apply cursor-pointer inline-block text-center text-sm px-4 py-2 leading-normal border border-cta rounded text-cta-darkest bg-cta;
+	}
+
+	.btn-white {
+		@apply border text-white border-white bg-transparent;
+	}
+
+	.btn-black {
+		@apply border text-black border-black bg-transparent;
+	}
+
+	@media (min-width: config('screens.md')) {
+		.btn {
+			@apply w-auto;
+		}
 	}
 
 	.btn:hover {
-		@apply no-underline bg-transparent text-white text-cta;
+		@apply text-cta-darkest cursor-pointer underline;
+	}
+
+	.btn-white:hover {
+		@apply border-transparent text-primary-darker bg-white;
+	}
+
+	.btn-black:hover {
+		@apply border-transparent text-primary-lighter bg-black;
 	}
 
 	.btn-large {
 		@apply text-lg py-4 px-8;
+	}
+
+	.status {
+		@apply bg-secondary rounded font-semibold text-white p-4;
 	}
 
 	.items > * {
@@ -98,21 +124,8 @@
 	form label {
 		@apply font-semibold text-grey-darkest mb-4 block;
 	}
-/**
- * Here you would add any of your custom component classes; stuff that you'd
- * want loaded *before* the utilities so that the utilities could still
- * override them.
- *
- * Example:
- *
- * .btn { ... }
- * .form-input { ... }
- *
- * Or if using a preprocessor:
- *
- * @import "components/buttons";
- * @import "components/forms";
- */
+
+	
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

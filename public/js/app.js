@@ -804,9 +804,10 @@ var toggleMenu = function toggleMenu(e) {
 	document.getElementById("menu").classList.toggle("hidden");
 };
 
-window.onload = setMenuState;
-
-document.getElementById("menuBtn").onclick = toggleMenu;
+if (document.getElementById("menuBtn")) {
+	window.onload = setMenuState;
+	document.getElementById("menuBtn").onclick = toggleMenu;
+}
 
 feather.replace();
 

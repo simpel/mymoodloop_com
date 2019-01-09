@@ -24,7 +24,7 @@
 
 
 	<button type="submit" class="btn btn-large w-full mb-8">
-		<i data-feather="log-in" class="align-middle"></i> {{ __('Login') }}
+		<i data-feather="log-in" class="align-middle mr-2"></i> {{ __('Login') }}
 	</button>
 
 	<div class="md:flex">
@@ -36,7 +36,7 @@
 
 		<div class="w-100 md:w-1/2 md:text-right">
 			<a href="{{ route('register') }}">
-				{{ __('Sign up') }}
+				{{ __('Register') }}
 			</a>
 		</div>
 

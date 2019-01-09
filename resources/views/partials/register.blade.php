@@ -49,7 +49,7 @@
 	<div>
 
 			<button type="submit" class="btn btn-large w-full">
-				Register
+				<i data-feather="user-check" class="align-middle mr-2"></i> Create your account
 			</button>
 		</div>
 

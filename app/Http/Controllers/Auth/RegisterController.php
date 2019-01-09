@@ -29,7 +29,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
+	protected function redirectTo()
+	{
+    	return route('setup');
+	}
 
     /**
      * Create a new controller instance.
@@ -70,9 +74,10 @@ class RegisterController extends Controller
 		$user->firstname = $data['firstname'];
 		$user->lastname = $data['lastname'];
 		$user->email = $data['email'];
+		$user->slug = str_slug($user->firstname.' '.$user->lastname, '-');
 		$user->password = Hash::make($data['password']);
 		$user->save();
-		$user->roles()->attach(Role::where('name', 'User')->first());
+
 
 
 		return $user;

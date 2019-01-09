@@ -579,6 +579,7 @@ a:hover {
   font-size: 2.25rem;
   letter-spacing: -0.002em;
   font-weight: 400;
+  line-height: 1;
 }
 
 @media (min-width: 768px) {
@@ -615,25 +616,58 @@ a:hover {
 }
 
 .btn {
-  border-radius: .25rem;
-  background-color: #ffbc50;
-  border-width: 1px;
-  border-color: #ffbc50;
-  color: #4d3818;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  font-size: .875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   padding-top: .5rem;
   padding-bottom: .5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  text-align: center;
-  display: inline-block;
-  font-weight: 600;
+  line-height: 1.5;
+  border-width: 1px;
+  border-color: #ffbc50;
+  border-radius: .25rem;
+  color: #4d3818;
+  background-color: #ffbc50;
+}
+
+.btn-white {
+  border-width: 1px;
+  color: #fff;
+  border-color: #fff;
+  background-color: transparent;
+}
+
+.btn-black {
+  border-width: 1px;
+  color: #22292f;
+  border-color: #22292f;
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    width: auto;
+  }
 }
 
 .btn:hover {
-  text-decoration: none;
-  background-color: transparent;
-  color: #fff;
-  color: #ffbc50;
+  color: #4d3818;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-white:hover {
+  border-color: transparent;
+  color: #2e9191;
+  background-color: #fff;
+}
+
+.btn-black:hover {
+  border-color: transparent;
+  color: #b7fafa;
+  background-color: #22292f;
 }
 
 .btn-large {
@@ -642,6 +676,14 @@ a:hover {
   padding-bottom: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.status {
+  background-color: #4cf298;
+  border-radius: .25rem;
+  font-weight: 600;
+  color: #fff;
+  padding: 1rem;
 }
 
 .items > * {
@@ -678,22 +720,6 @@ form label {
   margin-bottom: 1rem;
   display: block;
 }
-
-/**
- * Here you would add any of your custom component classes; stuff that you'd
- * want loaded *before* the utilities so that the utilities could still
- * override them.
- *
- * Example:
- *
- * .btn { ... }
- * .form-input { ... }
- *
- * Or if using a preprocessor:
- *
- * @import "components/buttons";
- * @import "components/forms";
- */
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

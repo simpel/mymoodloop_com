@@ -25,8 +25,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-	public function redirectTo(){
-    	return route('you');
+	protected function redirectTo(){
+    	return route('setup');
 	}
 
     /**

@@ -19,8 +19,11 @@ const toggleMenu = (e) => {
 	document.getElementById("menu").classList.toggle("hidden");
 }
 
-window.onload = setMenuState;
+if(document.getElementById("menuBtn")) {
+	window.onload = setMenuState;
+	document.getElementById("menuBtn").onclick = toggleMenu;
+}
 
-document.getElementById("menuBtn").onclick = toggleMenu;
+
 
 feather.replace();
