@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Valuation extends Model
+class Mood extends Model
 {
 	public function comments()
    	{
-	   return $this->hasMany('App\ValuationComment');
+	   return $this->hasMany('App\MoodComment');
    	}
 }

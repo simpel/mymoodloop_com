@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\ValuationType;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class ValuationTypeController extends Controller
+class SettingsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,14 @@ class ValuationTypeController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+
+        $settings = $user->allSettings();
+
+        return view('you.settings', [
+            'user' => $user,
+            'settings' => $settings,
+        ]);
     }
 
     /**
@@ -41,10 +54,10 @@ class ValuationTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ValuationType  $valuationType
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(ValuationType $valuationType)
+    public function show($id)
     {
         //
     }
@@ -52,10 +65,10 @@ class ValuationTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ValuationType  $valuationType
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ValuationType $valuationType)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +77,10 @@ class ValuationTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ValuationType  $valuationType
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ValuationType $valuationType)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +88,10 @@ class ValuationTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ValuationType  $valuationType
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ValuationType $valuationType)
+    public function destroy($id)
     {
         //
     }

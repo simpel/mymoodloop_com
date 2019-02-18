@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8828d07389b3c4450a1531d0f37f8a08",
+    "content-hash": "9391737fb018b61338873f4fc7f9fe3f",
     "packages": [
         {
             "name": "deployer/deployer",
@@ -3658,6 +3658,63 @@
                 "environment"
             ],
             "time": "2018-10-30T17:29:25+00:00"
+        },
+        {
+            "name": "zachleigh/laravel-property-bag",
+            "version": "v1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zachleigh/laravel-property-bag.git",
+                "reference": "cef8fe4925885f14ebe651bb9bfa06794b6e253f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zachleigh/laravel-property-bag/zipball/cef8fe4925885f14ebe651bb9bfa06794b6e253f",
+                "reference": "cef8fe4925885f14ebe651bb9bfa06794b6e253f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "laravel/browser-kit-testing": "~1.0",
+                "laravel/laravel": "~5.7",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelPropertyBag\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelPropertyBag\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zach Leigh",
+                    "email": "zachleigh@fastmail.jp"
+                }
+            ],
+            "description": "Easy Laravel user settings using a property bag",
+            "homepage": "https://github.com/zachleigh/laravel-property-bag",
+            "keywords": [
+                "Settings",
+                "laravel",
+                "property",
+                "propety bag",
+                "user",
+                "user settings"
+            ],
+            "time": "2019-01-25T13:49:17+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",

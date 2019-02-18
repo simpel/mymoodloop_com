@@ -104,7 +104,7 @@
 	}
 
 	.status {
-		@apply bg-secondary rounded font-semibold text-white p-4;
+		@apply bg-grey-lightest rounded font-semibold text-grey p-4;
 	}
 
 	.items > * {
@@ -121,11 +121,62 @@
 		@apply text-black outline-none shadow-outline;
 	}
 
-	form label {
-		@apply font-semibold text-grey-darkest mb-4 block;
+
+
+	.checkbox input {
+  		@apply hidden;
 	}
 
-	
+	.checkbox label {
+		@apply px-8 py-4 rounded border border-primary text-primary-darkest cursor-pointer;
+	}
+
+	.checkbox label .on {
+		@apply w-6 h-6 mr-2 inline-block;
+	}
+
+	.checkbox label .off {
+		@apply w-6 h-6 mr-2 hidden;
+	}
+
+	.checkbox input + label:hover {
+  		@apply text-primary-darkest;
+	}
+
+	.checkbox input:checked + label {
+  		@apply bg-primary text-primary-darkest;
+	}
+
+	.checkbox input:checked + label .on {
+  		@apply hidden;
+	}
+
+	.checkbox input:checked + label .off {
+  		@apply inline-block;
+	}
+
+
+	input[type=range] {
+		@apply appearance-none w-full bg-transparent outline-none;
+	}
+
+	input[type=range]:focus, input[type=range]:active {
+  		@apply outline-none;
+	}
+
+	input[type=range]::-webkit-slider-runnable-track {
+		@apply w-full cursor-pointer bg-primary-lighter rounded-full border outline-none;
+	}
+
+	input[type=range]::-webkit-slider-thumb {
+		@apply bg-primary cursor-pointer appearance-none w-4 h-6 rounded-full border-none outline-none;
+	}
+
+	input[type=range]:active::-webkit-slider-thumb {
+		@apply bg-primary-darkest;
+	}
+
+
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

@@ -15,6 +15,11 @@ class ValuationTypeSeeder extends Seeder
     {
 
 		$types = [
+            [
+				'label' => 'Eating & Drinking habits',
+				'desc' => '',
+				'color' => '#ff0000'
+			],
 			[
 				'label' => 'Family relations',
 				'desc' => '',
@@ -36,7 +41,7 @@ class ValuationTypeSeeder extends Seeder
 				'color' => '#ff4400'
 			],
 			[
-				'label' => 'Employment',
+				'label' => 'Work/life balance',
 				'desc' => '',
 				'color' => '#ff5500'
 			],
@@ -64,7 +69,7 @@ class ValuationTypeSeeder extends Seeder
 				'label' => 'Health & Fitness',
 				'desc' => '',
 				'color' => '#ff9900'
-			],
+			]
 		];
 
 		foreach ($types as $type) {

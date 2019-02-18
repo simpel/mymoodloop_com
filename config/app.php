@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
-	'logo' => strtolower(preg_replace('/\s+/', '', env('APP_NAME', 'Laravel'))),
+    'name' => env('APP_NAME', 'mymoodloop'),
+	'logo' => strtolower(preg_replace('/\s+/', '', env('APP_NAME', 'mymoodloop'))),
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+         LaravelPropertyBag\ServiceProvider::class,
 
         /*
          * Application Service Providers...

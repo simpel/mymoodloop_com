@@ -22,6 +22,6 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 
 
 Route::get('/you', 'UserController@index')->name('you');
-Route::get('/you/setup/{step?}', 'UserController@setup')->name('setup');
-Route::get('/you/profile', 'UserController@edit')->name('you.profile');
-Route::get('/admin', 'AdminController@index')->name('home');
+Route::get('/you/settings', 'SettingsController@index')->name('you.settings');
+Route::get('/you/setup/{step?}', 'SetupController@index')->name('you.setup');
+Route::post('/you/setup/{step?}', 'SetupController@store')->name('you.setup');
