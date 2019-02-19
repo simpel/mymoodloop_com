@@ -20,6 +20,8 @@ Route::get('/about', 'PagesController@about')->name('about');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 
+Route::resource('moods', 'MoodController');
+
 
 Route::get('/you', 'UserController@index')->name('you');
 Route::get('/you/settings', 'SettingsController@index')->name('you.settings');

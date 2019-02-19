@@ -27,12 +27,21 @@ class UserController extends Controller
     public function index()
     {
 		$user = Auth::user();
+        $targets = json_decode($user->settings('moods'));
 
-        if($user->settings('hasFinishedSetup')) {
-            return 'SetupisDone';
-        } else {
-            return redirect()->route('you.setup');
+        foreach ($targets as $target) {
+            $ids[] = $target->mood_type;
         }
+
+        $moods = MoodType::whereIn('id', $ids)->get();
+
+
+        if($user->settings('hasFinishedSetup') == false) return redirect()->route('you.setup');
+
+        return view('you.start', [
+            'user' => $user,
+            'moods' => $moods,
+        ]);
 
 
     }
