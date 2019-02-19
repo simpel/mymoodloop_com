@@ -31,7 +31,7 @@ class UserController extends Controller
         if($user->settings('hasFinishedSetup')) {
             return 'SetupisDone';
         } else {
-            return redirect()->route('setup');
+            return redirect()->route('you.setup');
         }
 
 
