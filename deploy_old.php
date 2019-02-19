@@ -19,6 +19,8 @@ add('shared_dirs', []);
 
 // Writable dirs by web server
 add('writable_dirs', []);
+
+
 // Hosts
 
 host('mymoodloop.com')
@@ -38,4 +40,4 @@ after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
 
-before('deploy:update_code', 'artisan:migrate');
+//before('deploy:update_code', 'artisan:migrate');

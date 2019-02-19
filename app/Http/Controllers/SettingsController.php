@@ -24,6 +24,7 @@ class SettingsController extends Controller
 
         $settings = $user->allSettings();
 
+
         return view('you.settings', [
             'user' => $user,
             'settings' => $settings,
