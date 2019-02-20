@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\MoodType;
+use App\Mood;
 
 class UserController extends Controller
 {
@@ -27,20 +28,37 @@ class UserController extends Controller
     public function index()
     {
 		$user = Auth::user();
-        $targets = json_decode($user->settings('moods'));
+        $userTypes = json_decode($user->settings('moods'));
 
-        foreach ($targets as $target) {
-            $ids[] = $target->mood_type;
+        foreach ($userTypes as $userType) {
+
+            $type = MoodType::where('id', "=", $userType->mood_type)->first();
+
+
+
+            $data = array();
+            $labels = array();
+
+            foreach ($type->moods as $mood) {
+                $data[] = $mood->value;
+                $labels[] = $mood->created_at->timestamp;
+            }
+
+            $charts[] = [
+                "type" => $type,
+                "data" => json_encode($data),
+                "target" => $userType->target,
+                "labels" => json_encode($labels)
+            ];
         }
 
-        $moods = MoodType::whereIn('id', $ids)->get();
-
+        \Debugbar::log($charts);
 
         if($user->settings('hasFinishedSetup') == false) return redirect()->route('you.setup');
 
         return view('you.start', [
             'user' => $user,
-            'moods' => $moods,
+            'charts' => $charts,
         ]);
 
 

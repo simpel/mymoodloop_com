@@ -5,12 +5,14 @@
  * application frontend using useful Laravel and JavaScript libraries.
  */
 
-require('./bootstrap');
+require('./common/bootstrap');
 
+window.feather = require('feather-icons');
 
 const setMenuState = (e) => {
 	if (window.matchMedia('screen and (max-width: 768px)').matches) {
 		document.getElementById("menu").classList.add("hidden");
+    
 	}
 }
 
@@ -23,7 +25,5 @@ if(document.getElementById("menuBtn")) {
 	window.onload = setMenuState;
 	document.getElementById("menuBtn").onclick = toggleMenu;
 }
-
-
 
 feather.replace();

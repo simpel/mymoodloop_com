@@ -21,6 +21,9 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+
+@yield('scripts')
 </head>
 <body class="antialiased font-sans text-base">
     <div id="app">
@@ -32,6 +35,9 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TV6TVTT"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <script src="{{ mix('js/app.js') }}"></script>
+
+<script src="{{ mix('js/app.js') }}"></script>
+
+
 </body>
 </html>

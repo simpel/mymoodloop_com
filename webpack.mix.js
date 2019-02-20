@@ -36,12 +36,15 @@ mix.webpackConfig({
  |
  */
 
-mix.js('resources/js/app.js', 'public/js/')
-   .postCss('resources/css/app.css', 'public/css')
-   .tailwind()
-   .purgeCss()
-   .browserSync('mymoodloop.test')
-   .disableNotifications();
+mix.js('resources/js/app.js', 'public/js/');
+mix.js('resources/js/you.js', 'public/js/');
+
+mix.postCss('resources/css/app.css', 'public/css')
+    .tailwind()
+    .purgeCss();
+
+mix.browserSync('mymoodloop.test')
+    .disableNotifications();
 
 
 if (mix.inProduction()) {

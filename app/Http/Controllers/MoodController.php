@@ -42,10 +42,10 @@ class MoodController extends Controller
     public function store(Request $request)
     {
 
-        foreach ($request->moods as $moodtype => $value) {
+        foreach ($request->types as $type => $value) {
             $mood = new Mood;
 
-            $mood->mood_types_id = $moodtype;
+            $mood->mood_type_id = $type;
             $mood->value = $value;
             $mood->users_id = Auth::user()->id;
 
