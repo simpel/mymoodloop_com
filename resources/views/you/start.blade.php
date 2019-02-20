@@ -11,7 +11,7 @@
 
 		<div class="max-w-xl mx-auto px-6 pb-6 ">
 
-				<h1>Hi {{ $user->firstname }}</h1>
+				<h1>👋 Hi {{ $user->firstname }}</h1>
 
 
 
@@ -21,47 +21,55 @@
 						{{ Session::get('status') }}
 
 					</div>
+
+				@else
+					<div class="shadow-md border w-full p-8 my-8">
+	                    <h2>Where has your focus been lately?</h2>
+
+	                    <form method="POST" action="{{route('moods.store')}}">
+
+		                    {{ csrf_field() }}
+		                    <div class="flex flex-wrap -mx-4">
+		                        @foreach ($charts as $chart)
+
+		        					<div class="w-full md:w-1/2 p-4">
+
+		        						<label for="mood_{{$chart["type"]->id}}" class="block mb-4">
+		        							{{$chart["type"]->label}}
+		        						</label>
+
+		        						<input type="range" id="type_{{$chart["type"]->id}}" name="types[{{$chart["type"]->id}}]" value="0" min="0" max="100" class="w-full">
+		        					</div>
+
+		        				@endforeach
+		                    </div>
+		                    <div class="text-center">
+		                        <button type="submit" class="btn btn-large">
+		        					{{ __("Submit moods") }} <i data-feather="activity" class="align-middle ml-2"></i>
+		        				</button>
+		                    </div>
+
+	                    </form>
+
+	                </div>
 				@endif
+</div>
+<div class="bg-grey-lightest py-8">
+	<div class="max-w-xl mx-auto px-6 pb-6 ">
 
-                <div class="shadow-md border w-full p-8 my-8">
-                    <h2>Where has your focus been lately?</h2>
 
-                    <form method="POST" action="{{route('moods.store')}}">
 
-	                    {{ csrf_field() }}
-	                    <div class="flex flex-wrap -mx-4">
-	                        @foreach ($charts as $chart)
-
-	        					<div class="w-1/2 p-4">
-
-	        						<label for="mood_{{$chart["type"]->id}}" class="block mb-4">
-	        							{{$chart["type"]->label}}
-	        						</label>
-
-	        						<input type="range" id="type_{{$chart["type"]->id}}" name="types[{{$chart["type"]->id}}]" value="0" min="0" max="100" class="w-full">
-	        					</div>
-
-	        				@endforeach
-	                    </div>
-	                    <div class="text-center">
-	                        <button type="submit" class="btn btn-large">
-	        					{{ __("Submit moods") }} <i data-feather="activity" class="align-middle ml-2"></i>
-	        				</button>
-	                    </div>
-
-                    </form>
-
-                </div>
+				<h1>🙏 Your moodloops</h1>
 
 				<div class="flex flex-wrap -mx-4">
 					@foreach ($charts as $chart)
 
-						<div class="w-1/2 p-4">
-							<div class="shadow-md my-4 ">
+						<div class="w-full md:w-1/2 p-4 ">
+							<div class="shadow-md my-4 bg-white ">
 
-								<h2 class="text-md p-8">
+								<h3 class="text-md p-8">
 									{{$chart['type']->label}}
-								</h2>
+								</h3>
 
 								<canvas id="chart__id_{{$chart['type']->id}}" class="w-full h-32">
 
@@ -142,5 +150,5 @@
 				</div>
 
 		</div>
-
+</div>
 @endsection
