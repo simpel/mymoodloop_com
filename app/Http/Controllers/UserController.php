@@ -34,8 +34,6 @@ class UserController extends Controller
 
             $type = MoodType::where('id', "=", $userType->mood_type)->first();
 
-
-
             $data = array();
             $labels = array();
 
@@ -51,8 +49,6 @@ class UserController extends Controller
                 "labels" => json_encode($labels)
             ];
         }
-
-        \Debugbar::log($charts);
 
         if($user->settings('hasFinishedSetup') == false) return redirect()->route('you.setup');
 
