@@ -11,6 +11,7 @@
 		<div class="flex flex-col content-between max-w-xl mx-auto px-6 pb-6 ">
 			<div class="flex-1 relative mt-8 mb-20">
 					<div class="md:w-3/4 lg:w-3/5 self-end pin-b relative">
+						<h1>{{ env('FACEBOOK_CALLBACK') }}</h1>
 						<h1 class="text-white font-sans font-normal leading-normal text-9xl mb-5">Track your mood. <br> It makes you feel better*</h1>
 						<p class="text-white leading-normal mb-10">Let MyMoodLoop track your mood over time so you can start to manage your mental health.</p>
 						<a href="{{ route('register') }}" class="btn btn-large mb-3">Start tracking your mood</a>
