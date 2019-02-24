@@ -24,7 +24,7 @@ add('writable_dirs', []);
 
 // Hosts
 
-set('default_stage', 'production');
+//set('default_stage', 'production');
 
 /*
 host('mymoodloop.com')
