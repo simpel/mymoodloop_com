@@ -59,12 +59,11 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $providedUser = Socialite::driver($provider)->fields([
-                    'first_name',
-                    'last_name',
-                ])->stateless()->user();
+        $providedUser = Socialite::driver($provider)->stateless()->user();
         // check if they're an existing user
         $user = User::where('email', $providedUser->email)->first();
+
+        dd($providedUser);
 
         //dd($providedUser, $user);
 
