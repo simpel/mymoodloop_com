@@ -2,6 +2,7 @@
 namespace Deployer;
 
 require 'recipe/laravel.php';
+require 'recipe/cachetool.php';
 
 // Project name
 set('application', 'mymoodloop.com');
@@ -61,4 +62,4 @@ after('deploy:failed', 'deploy:unlock');
 before('deploy:symlink', 'artisan:migrate');
 after('deploy:symlink', 'cachetool:clear:opcache');
 // or
-after('deploy:symlink', 'cachetool:clear:apc');
+//after('deploy:symlink', 'cachetool:clear:apc');
