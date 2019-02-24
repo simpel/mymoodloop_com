@@ -63,14 +63,23 @@ class LoginController extends Controller
         // check if they're an existing user
         $user = User::where('email', $providedUser->email)->first();
 
-        dd($providedUser);
 
-        //dd($providedUser, $user);
+
 
         if(!$user){
             $user = new User;
-            $user->firstname = $providedUser->user["first_name"];
-            $user->lastname = $providedUser->user["last_name"];
+
+            switch ($provider) {
+                case 'google':
+                    $user->firstname = $providedUser->user["given_name"];
+                    $user->lastname = $providedUser->user["family_name"];
+                    break;
+                case 'facebook':
+                    $user->firstname = $providedUser->user["first_name"];
+                    $user->lastname = $providedUser->user["last_name"];
+                    break;
+            }
+
             $user->email = $providedUser->email;
     		$user->slug = str_slug($user->firstname.' '.$user->lastname, '-');
             $user->save();
