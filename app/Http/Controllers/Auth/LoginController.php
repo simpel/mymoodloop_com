@@ -65,6 +65,7 @@ class LoginController extends Controller
 
 
 
+        dd($providedUser);
 
         if(!$user){
             $user = new User;
