@@ -27,7 +27,7 @@ class VerificationController extends Controller
      */
 	 protected function redirectTo()
  	{
-     	return route('you');
+     	return route('you.setup');
  	}
 
     /**

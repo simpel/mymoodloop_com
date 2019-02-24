@@ -30,6 +30,10 @@ class UserController extends Controller
 		$user = Auth::user();
         $userTypes = json_decode($user->settings('moods'));
 
+        if(!$userTypes) {
+            return redirect(route('you.setup'));
+        }
+
         foreach ($userTypes as $userType) {
 
             $type = MoodType::where('id', "=", $userType->mood_type)->first();

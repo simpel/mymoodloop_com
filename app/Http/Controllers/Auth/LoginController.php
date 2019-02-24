@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
+use Socialite;
 
 class LoginController extends Controller
 {
@@ -19,6 +21,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
 
     /**
      * Where to redirect users after login.
@@ -37,5 +40,70 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider($provider)
+    {
+
+
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        $providedUser = Socialite::driver($provider)->fields([
+                    'name',
+                    'first_name',
+                    'last_name',
+                    'email',
+                    'gender',
+                    'verified'
+                ])->stateless()->user();
+        // check if they're an existing user
+        $user = User::where('email', $providedUser->email)->first();
+
+        //dd($providedUser, $user);
+
+        if(!$user){
+            $user = new User;
+            $user->firstname = $providedUser->user["first_name"];
+            $user->lastname = $providedUser->user["last_name"];
+            $user->email = $providedUser->email;
+    		$user->slug = str_slug($user->firstname.' '.$user->lastname, '-');
+            $user->save();
+            $user->sendEmailVerificationNotification();
+        }
+
+
+
+        switch ($provider) {
+            case 'google':
+                $user->google_id = $providedUser->id;
+                $user->google_avatar = $providedUser->avatar;
+                $user->google_avatar_original = $providedUser->avatar_original;
+                break;
+
+            case 'facebook':
+                $user->facebook_id = $providedUser->id;
+                $user->facebook_avatar = $providedUser->avatar;
+                $user->facebook_avatar_original = $providedUser->avatar_original;
+                break;
+        }
+
+        $user->save();
+        auth()->login($user, true);
+
+        return redirect(route('you'));
+
     }
 }

@@ -70,11 +70,11 @@
 
 
 	.btn {
-		@apply cursor-pointer inline-block text-center text-sm px-4 py-2 leading-normal border border-cta rounded text-cta-darkest bg-cta;
+		@apply font-normal cursor-pointer inline-block text-center text-sm px-4 py-2 leading-normal border border-cta rounded text-cta-darkest bg-cta;
 	}
 
 	.btn-white {
-		@apply border text-white border-white bg-transparent;
+		@apply text-cta-darkest border-cta-darkest bg-white;
 	}
 
 	.btn-black {
@@ -92,7 +92,7 @@
 	}
 
 	.btn-white:hover {
-		@apply border-transparent text-primary-darker bg-white;
+		@apply bg-cta-lightest;
 	}
 
 	.btn-black:hover {

@@ -14,6 +14,7 @@
         "fideloper/proxy": "^4.0",
         "laravel-frontend-presets/tailwindcss": "^0.7.0",
         "laravel/framework": "5.7.*",
+        "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
         "spatie/laravel-permission": "^2.29",
         "zachleigh/laravel-property-bag": "^1.3"

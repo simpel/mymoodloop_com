@@ -13,17 +13,22 @@
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 
 Route::get('/', 'PagesController@index')->name('start');
 Route::get('/about', 'PagesController@about')->name('about');
 
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
-
-Route::resource('moods', 'MoodController');
 
 
-Route::get('/you', 'UserController@index')->name('you');
+Route::resource('moods', 'MoodController')->middleware('verified');
+
+
+Route::get('/you', 'UserController@index')->middleware('verified')->name('you');
 Route::get('/you/settings', 'SettingsController@index')->name('you.settings');
-Route::get('/you/setup/{step?}', 'SetupController@index')->name('you.setup');
-Route::post('/you/setup/{step?}', 'SetupController@store')->name('you.setup');
+Route::get('/you/setup/{step?}', 'SetupController@index')->middleware('verified')->name('you.setup');
+Route::post('/you/setup/{step?}', 'SetupController@store')->middleware('verified')->name('you.setup');

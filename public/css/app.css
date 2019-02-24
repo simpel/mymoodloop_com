@@ -616,6 +616,7 @@ a:hover {
 }
 
 .btn {
+  font-weight: 400;
   cursor: pointer;
   display: inline-block;
   text-align: center;
@@ -633,10 +634,9 @@ a:hover {
 }
 
 .btn-white {
-  border-width: 1px;
-  color: #fff;
-  border-color: #fff;
-  background-color: transparent;
+  color: #4d3818;
+  border-color: #4d3818;
+  background-color: #fff;
 }
 
 .btn-black {
@@ -659,9 +659,7 @@ a:hover {
 }
 
 .btn-white:hover {
-  border-color: transparent;
-  color: #298383;
-  background-color: #fff;
+  background-color: #fff8ee;
 }
 
 .btn-black:hover {

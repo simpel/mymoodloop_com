@@ -9,7 +9,7 @@ set('application', 'mymoodloop.com');
 // Project repository
 //set('repository', 'https://github.com/simpel/mymoodloop_com.git');
 set('repository', 'git@github.com:simpel/mymoodloop_com.git');
-set('branch', 'production');
+//set('branch', 'production');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
@@ -19,19 +19,34 @@ add('shared_files', []);
 add('shared_dirs', []);
 
 // Writable dirs by web server
-add('writable_dirs', [
-	'current/bootstrap/cache',
-   	'current/storage'
-]);
+add('writable_dirs', []);
 
 
 // Hosts
 
+set('default_stage', 'production');
+
+/*
 host('mymoodloop.com')
 	->user('deployer')
     ->identityFile('~/.ssh/deployerkey')
     ->set('deploy_path', '/var/www/html/{{application}}');
+*/
 
+host('mymoodloop.com')
+	->user('deployer')
+	->identityFile('~/.ssh/deployerkey')
+    ->set('deploy_path', '/var/www/production/{{application}}')
+    ->set('branch', 'production')
+    ->stage('production');
+
+// Staging Server
+host('stage.mymoodloop.com')
+	->user('deployer')
+	->identityFile('~/.ssh/deployerkey')
+    ->set('deploy_path', '/var/www/stage/{{application}}')
+    ->set('branch', 'master')
+    ->stage('stage');
 // Tasks
 
 task('build', function () {

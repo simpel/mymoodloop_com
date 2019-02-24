@@ -20,7 +20,7 @@ class MoodController extends Controller
      */
     public function index()
     {
-        //
+        return redirect()->route('you');
     }
 
     /**
@@ -47,7 +47,7 @@ class MoodController extends Controller
 
             $mood->mood_type_id = $type;
             $mood->value = $value;
-            $mood->users_id = Auth::user()->id;
+            $mood->user_id = Auth::user()->id;
 
             $mood->save();
         }
