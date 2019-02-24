@@ -11,8 +11,8 @@ window.feather = require('feather-icons');
 
 const setMenuState = (e) => {
 	if (window.matchMedia('screen and (max-width: 768px)').matches) {
-		document.getElementById("menu").classList.add("hidden");
-    
+		//document.getElementById("menu").classList.add("hidden");
+
 	}
 }
 

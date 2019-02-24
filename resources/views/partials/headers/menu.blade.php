@@ -1,7 +1,7 @@
 <nav class="flex items-center content-center justify-between flex-wrap p-6 w-full max-w-xl mx-auto">
 	<div class="flex items-center flex-no-shrink text-{{ $color }} text-white mr-6">
 		<a href="{{ route('start') }}" class="logo text-{{ $color }}">
-			{{ config('app.logo', 'Laravel') }}
+			{{ config('app.logo', '') }}
 		</a>
 	</div>
 	<div class="block md:hidden">
@@ -21,7 +21,7 @@
 			@endauth
 		</div>
 
-		<div class="flex">
+		<div class="md:flex">
 			@auth
 				<a href="{{ route('logout') }}" class="btn btn-{{ $color }} block w-full mt-8 md:mt-0">{{ __('Logout') }}</a>
 			@else

@@ -459,7 +459,8 @@ window.feather = __webpack_require__(178);
 
 var setMenuState = function setMenuState(e) {
 	if (window.matchMedia('screen and (max-width: 768px)').matches) {
-		document.getElementById("menu").classList.add("hidden");
+		//document.getElementById("menu").classList.add("hidden");
+
 	}
 };
 
