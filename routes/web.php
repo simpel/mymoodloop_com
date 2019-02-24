@@ -22,6 +22,8 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 
 Route::get('/', 'PagesController@index')->name('start');
 Route::get('/about', 'PagesController@about')->name('about');
+Route::get('/privacy', 'PagesController@privacy')->name('privacy');
+Route::get('/terms', 'PagesController@terms')->name('terms');
 
 
 

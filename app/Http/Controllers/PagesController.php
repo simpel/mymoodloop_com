@@ -12,8 +12,7 @@ class PagesController extends Controller
 		return view('start');
     }
 
-	public function about()
-    {
-		return view('about');
-    }
+	public function about() { return view('about'); }
+	public function terms() { return view('terms'); }
+	public function privacy() { return view('privacy'); }
 }
