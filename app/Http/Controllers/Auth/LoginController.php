@@ -64,6 +64,7 @@ class LoginController extends Controller
             $providedUser = Socialite::driver($provider)->fields([
                 'first_name',
                 'last_name',
+                'email',
                 ])->stateless()->user();
         } else {
             $providedUser = Socialite::driver($provider)->stateless()->user();
