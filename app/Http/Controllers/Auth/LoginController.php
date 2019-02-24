@@ -60,12 +60,8 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         $providedUser = Socialite::driver($provider)->fields([
-                    'name',
                     'first_name',
                     'last_name',
-                    'email',
-                    'gender',
-                    'verified'
                 ])->stateless()->user();
         // check if they're an existing user
         $user = User::where('email', $providedUser->email)->first();
