@@ -89,7 +89,6 @@ class LoginController extends Controller
             }
 
             $user->email = $providedUser->email;
-    		$user->slug = str_slug($user->firstname.' '.$user->lastname, '-');
             $user->save();
             $user->sendEmailVerificationNotification();
         }

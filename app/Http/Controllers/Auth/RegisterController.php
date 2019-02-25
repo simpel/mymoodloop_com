@@ -74,7 +74,6 @@ class RegisterController extends Controller
 		$user->firstname = $data['firstname'];
 		$user->lastname = $data['lastname'];
 		$user->email = $data['email'];
-		$user->slug = str_slug($user->firstname.' '.$user->lastname, '-');
 		$user->password = Hash::make($data['password']);
 		$user->save();
 
