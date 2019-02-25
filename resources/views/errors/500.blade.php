@@ -6,7 +6,7 @@
         <script src="https://browser.sentry-cdn.com/4.6.3/bundle.min.js" crossorigin="anonymous"></script>
         <script>
             Sentry.init({ dsn: 'https://c09298e2d2c04e25ba586f01f267adca@sentry.io/1402267' });
-            Sentry.showReportDialog({ eventId: '' });
+            Sentry.showReportDialog({ eventId: '500' });
         </script>
     @endif
 </div>
