@@ -12,6 +12,19 @@
 			</div>
 			<p class="lg:w-3/4 text-xl leading-loose">Begin by picking the areas<span class="text-sm text-cta">(1)</span> that you'd like to track, later on we'll set your desired state<span class="text-sm text-cta">(2)</span> and configure how often you'd like to hear from us<span class="text-sm text-cta">(3)</span>.</p>
 
+
+
+			@if ($errors->any())
+			   	<div class="shadow-md bg-secondary w-full p-8 mb-8 text-white text-lg">
+
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
+
 			<form method="POST" action="{{route('you.setup', ['step' => 1])}}">
 				{{ csrf_field() }}
 				<div class="flex flex-wrap">
@@ -19,7 +32,7 @@
 					@foreach ($moods as $mood)
 
 						<div class="checkbox mr-8 mb-8">
-							<input type="checkbox" checked="checked" name="moods[]" value="{{ $mood->id }}" id="toggle_{{ $mood->id }}"/>
+							<input type="checkbox" name="moods[]" value="{{ $mood->id }}" id="toggle_{{ $mood->id }}"/>
 							<label for="toggle_{{ $mood->id }}" class="flex items-center">
 
 								<i data-feather="square" class="on"></i>

@@ -19,6 +19,7 @@
             </p>
 
 
+{{--
             @if(app()->bound('sentry') && app('sentry')->getLastEventId())
 
                 <script src="https://browser.sentry-cdn.com/4.6.3/bundle.min.js" crossorigin="anonymous"></script>
@@ -28,6 +29,8 @@
                 </script>
             @endif
 		</div>
+
+        --}}
 
 
 @endsection

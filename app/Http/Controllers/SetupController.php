@@ -72,6 +72,14 @@ class SetupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function messages()
+    {
+        return [
+            'moods.required' => '☝️ You need to pick at least one mood to track.',
+        ];
+    }
+
     public function store(Request $request)
     {
         $step = $request->step;
@@ -79,6 +87,12 @@ class SetupController extends Controller
         switch ($step) {
 
             case 1:
+
+
+                $validatedData = $request->validate([
+                    'moods' => 'required|min:1',
+                ]);
+
                 foreach ($request->moods as $type) {
                     $moods[] = array(
                         'mood_type' => $type
