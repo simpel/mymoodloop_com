@@ -21,7 +21,7 @@ class User extends Authenticatable
    public function getSlugOptions() : SlugOptions
    {
        return SlugOptions::create()
-           ->generateSlugsFrom(['first_name', 'last_name'])
+           ->generateSlugsFrom(['firstname', 'lastname'])
            ->doNotGenerateSlugsOnUpdate()
            ->saveSlugsTo('slug');
    }
