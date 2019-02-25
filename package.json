@@ -30,6 +30,7 @@
     },
     "dependencies": {
         "chart.js": "^2.7.3",
-        "feather-icons": "^4.10.0"
+        "feather-icons": "^4.10.0",
+        "rangeslider-js": "^3.2.1"
     }
 }
