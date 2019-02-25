@@ -16,7 +16,7 @@
         "laravel/framework": "5.7.*",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
-        "sentry/sentry-laravel": "^1.0",
+        "sentry/sentry-laravel": "1.0.0",
         "spatie/laravel-permission": "^2.29",
         "spatie/laravel-sluggable": "^2.1",
         "zachleigh/laravel-property-bag": "^1.3"
