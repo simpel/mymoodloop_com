@@ -29,15 +29,15 @@
 				{{ csrf_field() }}
 				<div class="flex flex-wrap">
 
-					@foreach ($moods as $mood)
+					@foreach ($mood_types as $type)
 
 						<div class="checkbox mr-8 mb-8">
-							<input type="checkbox" name="moods[]" value="{{ $mood->id }}" id="toggle_{{ $mood->id }}"/>
-							<label for="toggle_{{ $mood->id }}" class="flex items-center">
+							<input type="checkbox" name="mood_types[]" value="{{ $type->id }}" id="toggle_{{ $type->id }}"/>
+							<label for="toggle_{{ $type->id }}" class="flex items-center">
 
 								<i data-feather="square" class="on"></i>
 								<i data-feather="check-square" class="off"></i>
-								<span>{{ $mood->label }}</span>
+								<span>{{ $type->label }}</span>
 							</label>
 
 

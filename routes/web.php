@@ -28,9 +28,9 @@ Route::get('/terms', 'PagesController@terms')->name('terms');
 
 
 Route::resource('moods', 'MoodController')->middleware('verified');
+Route::resource('you/settings', 'SettingsController')->middleware('verified');
 
 
 Route::get('/you', 'UserController@index')->middleware('verified')->name('you');
-Route::get('/you/settings', 'SettingsController@index')->name('you.settings');
 Route::get('/you/setup/{step?}', 'SetupController@index')->middleware('verified')->name('you.setup');
 Route::post('/you/setup/{step?}', 'SetupController@store')->middleware('verified')->name('you.setup');

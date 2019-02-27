@@ -15,15 +15,15 @@ class UserSettings extends ResourceConfig
      */
     protected $registeredSettings = [
 
-        'hasFinishedSetup' => [
-            'allowed' => ':bool:',
-            'default' => false
+        'setupStep' => [
+            'allowed' => ':int:',
+            'default' => 1
         ],
         'periodicity' => [
             'allowed' => [0, 1, 2],
             'default' => 1
         ],
-        'moods' => [
+        'mood_types' => [
             'allowed' => ':any:',
             'default' => ''
         ]

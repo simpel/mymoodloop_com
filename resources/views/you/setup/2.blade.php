@@ -25,18 +25,20 @@
 
 				{{ csrf_field() }}
 
-				@foreach ($moods as $mood)
+				@foreach ($mood_types as $type)
 
-					<div class="flex py-8 border-b">
+					<div class=" py-8 border-b">
 
-						<label for="mood_{{$mood->id}}" class="w-1/3">
-							{{$mood->label}}
+						<label for="mood_type_{{$type->id}}">
+							{{$type->label}}
 						</label>
 
-						<input type="range" id="mood_{{$mood->id}}" name="moods[{{$mood->id}}]" value="0" min="0" max="100" class="w-full">
+						<input type="hidden" name="mood_types[{{$type->id}}][id]" value="{{$type->id}}">
+
+						<input type="range" name="mood_types[{{$type->id}}][target]" value="0" min="0" max="100" class="w-full">
+
+						<textarea name="mood_types[{{$type->id}}][description]" cols="30" rows="10" class="w-full bg-grey-lightest rounded border-0"></textarea>
 					</div>
-
-
 
 				@endforeach
 

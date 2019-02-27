@@ -13,16 +13,27 @@
             </p>
 
 
-					@foreach ($settings as $label => $setting)
+			@foreach ($settings as $key => $setting)
 
-						<div class="py-8 border-b">
-                            {{$label}} = {{ $setting }}
-                        </div>
+				<div class="py-8 border-b flex">
+					<div class="w-1/4">{{$key}}</div>
+					<div class="flex w-3/4 justify-between">
+						<div>{{$setting}}</div>
+						<div>
+							<form action="{{ route('settings.destroy', $key) }}" method="POST">
+							    @method('DELETE')
+							    @csrf
+							    <button>{{__("Reset this setting")}}</button>
+							</form>
+						</div>
+					</div>
 
-					@endforeach
+
+                </div>
+
+			@endforeach
 
 
-			</form>
 
 		</div>
 

@@ -19,29 +19,29 @@ class SetupController extends Controller
         $page;
 
         $user = Auth::user();
-        $moodTypes = MoodType::all();
+        $mood_types = MoodType::all();
 
 		switch ($step) {
 
 			case 1:
                 return view('you.setup.1', [
                     'user' => $user,
-                    'moods' => $moodTypes,
+                    'mood_types' => $mood_types,
                 ]);
 				break;
 
             case 2:
-                $userMoods = session('moods');
+                $user_mood_types = json_decode($user->settings('mood_types'));
 
-                foreach ($userMoods as $mood) {
-                    $mood_ids[] = $mood['mood_type'];
+                foreach ($user_mood_types as $types) {
+                    $mood_type_ids[] = $types->id;
                 }
 
-                $moods = MoodType::whereIn('id', $mood_ids)->get();
+                $mood_types = MoodType::whereIn('id', $mood_type_ids)->get();
 
                 return view('you.setup.2', [
                     'user' => $user,
-                    'moods' => $moods,
+                    'mood_types' => $mood_types,
                 ]);
 
 				break;
@@ -83,6 +83,8 @@ class SetupController extends Controller
     public function store(Request $request)
     {
         $step = $request->step;
+        $user = Auth::user();
+
 
         switch ($step) {
 
@@ -90,41 +92,54 @@ class SetupController extends Controller
 
 
                 $validatedData = $request->validate([
-                    'moods' => 'required|min:1',
+                    'mood_types' => 'required|min:1',
                 ]);
 
-                foreach ($request->moods as $type) {
-                    $moods[] = array(
-                        'mood_type' => $type
+                foreach ($request->mood_types as $id) {
+                    $mood_types[] = array(
+                        'id' => $id
                     );
                 }
 
-                session(['moods' => $moods]);
+
+                $user->settings([
+                    'mood_types' => json_encode($mood_types),
+                    'setupStep' => 2
+                ]);
+
                 return redirect()->route('you.setup', ['step' => 2]);
                 break;
 
             case 2:
-                foreach ($request->moods as $mood => $target) {
-                    $moods[] = array(
-                        'mood_type' => $mood,
-                        'target' => $target
+
+
+
+                foreach ($request->mood_types as $type) {
+
+
+                    $mood_types[] = array(
+                        'id' => $type['id'],
+                        'settings' => [
+                            'description' => $type['description'],
+                            'target' => $type['target'],
+                        ]
                     );
                 }
 
-                session(['moods' => $moods]);
+                $user->settings([
+                    'mood_types' => json_encode($mood_types),
+                    'setupStep' => 3
+                ]);
+
                 return redirect()->route('you.setup', ['step' => 3]);
                 break;
 
             case 3:
-                $user = Auth::user();
 
                 $user->settings([
                     'periodicity' => intval($request->occurance),
-                    'moods' => json_encode(session('moods')),
-                    'hasFinishedSetup' => true,
+                    'setupStep' => 0,
                 ]);
-
-
 
                 return redirect()->route('you');
                 break;
