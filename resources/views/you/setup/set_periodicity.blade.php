@@ -17,7 +17,7 @@
 				</p>
 			</div>
 
-			<form method="POST" action="{{route('you.setup', ['step' => 3])}}">
+			<form method="POST" action="{{route('you.setup', ['step' => 'set_periodicity'])}}">
 
 				{{ csrf_field() }}
 

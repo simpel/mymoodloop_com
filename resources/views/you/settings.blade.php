@@ -18,7 +18,7 @@
 				<div class="py-8 border-b flex">
 					<div class="w-1/4">{{$key}}</div>
 					<div class="flex w-3/4 justify-between">
-						<div>{{$setting}}</div>
+						<div>{{(string) $setting}} </div>
 						<div>
 							<form action="{{ route('settings.destroy', $key) }}" method="POST">
 							    @method('DELETE')

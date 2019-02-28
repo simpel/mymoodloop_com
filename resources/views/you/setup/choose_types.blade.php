@@ -25,7 +25,7 @@
 			    </div>
 			@endif
 
-			<form method="POST" action="{{route('you.setup', ['step' => 1])}}">
+			<form method="POST" action="{{route('you.setup', ['step' => 'choose_types'])}}">
 				{{ csrf_field() }}
 				<div class="flex flex-wrap">
 

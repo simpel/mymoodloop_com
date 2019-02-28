@@ -14,46 +14,35 @@ class SetupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($step = 1)
+    public function index($step = 'choose_types')
     {
-        $page;
 
         $user = Auth::user();
-        $mood_types = MoodType::all();
 
 		switch ($step) {
 
-			case 1:
-                return view('you.setup.1', [
-                    'user' => $user,
-                    'mood_types' => $mood_types,
-                ]);
-				break;
+            case 'define_types':
+            case 'set_targets':
+            case 'set_periodicity':
 
-            case 2:
-                $user_mood_types = json_decode($user->settings('mood_types'));
+                $user_mood_type_ids= json_decode($user->settings('mood_type_id'));
+                $mood_types = MoodType::whereIn('id', $user_mood_type_ids)->get();
 
-                foreach ($user_mood_types as $types) {
-                    $mood_type_ids[] = $types->id;
-                }
-
-                $mood_types = MoodType::whereIn('id', $mood_type_ids)->get();
-
-                return view('you.setup.2', [
+                return view('you.setup.'.$step, [
                     'user' => $user,
                     'mood_types' => $mood_types,
                 ]);
 
-				break;
-
-            case 3:
-                return view('you.setup.3', [
-                    'user' => $user,
-                ]);
                 break;
-		}
+            default:
 
-		return $page;
+                $mood_types = MoodType::all();
+                return view('you.setup.choose_types', [
+                    'user' => $user,
+                    'mood_types' => $mood_types,
+                ]);
+				break;
+		}
     }
 
     /**
@@ -61,8 +50,7 @@ class SetupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -83,71 +71,88 @@ class SetupController extends Controller
     public function store(Request $request)
     {
         $step = $request->step;
-        $user = Auth::user();
-
 
         switch ($step) {
-
-            case 1:
-
-
-                $validatedData = $request->validate([
-                    'mood_types' => 'required|min:1',
-                ]);
-
-                foreach ($request->mood_types as $id) {
-                    $mood_types[] = array(
-                        'id' => $id
-                    );
-                }
-
-
-                $user->settings([
-                    'mood_types' => json_encode($mood_types),
-                    'setupStep' => 2
-                ]);
-
-                return redirect()->route('you.setup', ['step' => 2]);
+            case 'define_types':
+                $next = $this->define_types($request);
                 break;
-
-            case 2:
-
-
-
-                foreach ($request->mood_types as $type) {
-
-
-                    $mood_types[] = array(
-                        'id' => $type['id'],
-                        'settings' => [
-                            'description' => $type['description'],
-                            'target' => $type['target'],
-                        ]
-                    );
-                }
-
-                $user->settings([
-                    'mood_types' => json_encode($mood_types),
-                    'setupStep' => 3
-                ]);
-
-                return redirect()->route('you.setup', ['step' => 3]);
+            case 'set_targets':
+                $next = $this->set_targets($request);
                 break;
+            case 'set_periodicity':
 
-            case 3:
-
-                $user->settings([
+                Auth::user()->settings([
                     'periodicity' => intval($request->occurance),
-                    'setupStep' => 0,
+                    'setupStep' => 'set_periodicity',
+                    'setupIsDone' => true,
                 ]);
 
                 return redirect()->route('you');
                 break;
 
+            case 'choose_types':
+            default:
+                $next = $this->choose_types($request);
+                break;
         }
 
+        return redirect()->route('you.setup', ['step' => $next]);
 
     }
+
+    private function choose_types(Request $request) {
+
+        $user = Auth::user();
+
+        $validatedData = $request->validate([
+            'mood_types' => 'required|min:1',
+        ]);
+
+        foreach ($request->mood_types as $id) {
+            $mood_types[] = $id;
+        }
+
+        $user->settings([
+            'mood_type_id' => json_encode($mood_types),
+            'setupStep' => 'choose_types'
+        ]);
+
+        return 'define_types';
+    }
+
+    private function define_types(Request $request) {
+
+        $user = Auth::user();
+
+        foreach ($request->mood_type_description as $type) {
+            $descriptions[$type['id']] = $type['description'];
+        }
+
+        $user->settings([
+            'mood_type_description' => json_encode($descriptions),
+            'setupStep' => 'define_types'
+        ]);
+
+        return 'set_targets';
+    }
+
+    private function set_targets(Request $request) {
+
+        $user = Auth::user();
+
+        foreach ($request->mood_type_target as $type) {
+            $targets[$type['id']] = $type['target'];
+        }
+
+        $user->settings([
+            'mood_type_target' => json_encode($targets),
+            'setupStep' => 'set_targets'
+        ]);
+
+        return 'set_periodicity';
+    }
+
+
 
     /**
      * Display the specified resource.

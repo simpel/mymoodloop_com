@@ -28,15 +28,23 @@ class UserController extends Controller
     public function index()
     {
 		$user = Auth::user();
-        $userTypes = json_decode($user->settings('moods'));
 
-        if(!$userTypes) {
-            return redirect(route('you.setup'));
+        // Check if setup is completed
+
+
+        if(!$user->settings('setupIsDone')) {
+            $setupStep = $user->settings('setupStep');
+            return redirect(route('you.setup', ['step' => $setupStep]));
         }
 
-        foreach ($userTypes as $userType) {
+        $trackable_types_id = json_decode($user->settings('mood_type_id'));
+        $trackable_types_target = json_decode($user->settings('mood_type_target'));
 
-            $type = MoodType::where('id', "=", $userType->mood_type)->first();
+
+
+        foreach ($trackable_types_id as $type_id) {
+
+            $type = MoodType::where('id', "=", $type_id)->first();
 
             $data = array();
             $labels = array();
@@ -46,15 +54,15 @@ class UserController extends Controller
                 $labels[] = $mood->created_at->timestamp;
             }
 
+
+
             $charts[] = [
                 "type" => $type,
                 "data" => json_encode($data),
-                "target" => $userType->target,
+                "target" => $trackable_types_target->$type_id,
                 "labels" => json_encode($labels)
             ];
         }
-
-        if($user->settings('hasFinishedSetup') == false) return redirect()->route('you.setup');
 
         return view('you.start', [
             'user' => $user,

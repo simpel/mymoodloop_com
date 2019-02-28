@@ -21,7 +21,7 @@
 
 			</div>
 
-			<form method="POST" action="{{route('you.setup', ['step' => 2])}}">
+			<form method="POST" action="{{route('you.setup', ['step' => 'set_targets'])}}">
 
 				{{ csrf_field() }}
 
@@ -29,15 +29,13 @@
 
 					<div class=" py-8 border-b">
 
-						<label for="mood_type_{{$type->id}}">
-							{{$type->label}}
-						</label>
+						<h2>{{$type->label}}</h2>
 
-						<input type="hidden" name="mood_types[{{$type->id}}][id]" value="{{$type->id}}">
+						<input type="hidden" name="mood_type_target[{{$type->id}}][id]" value="{{$type->id}}">
 
-						<input type="range" name="mood_types[{{$type->id}}][target]" value="0" min="0" max="100" class="w-full">
+						<input type="range" name="mood_type_target[{{$type->id}}][target]" value="0" min="0" max="100" class="w-full">
 
-						<textarea name="mood_types[{{$type->id}}][description]" cols="30" rows="10" class="w-full bg-grey-lightest rounded border-0"></textarea>
+
 					</div>
 
 				@endforeach
