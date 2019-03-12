@@ -19,30 +19,18 @@ class SetupController extends Controller
 
         $user = Auth::user();
 
-		switch ($step) {
 
-            case 'define_types':
-            case 'set_targets':
-            case 'set_periodicity':
+        if($step == 'choose_types') {
+            $mood_types = MoodType::all();
+        } else {
+            $user_mood_type_ids= json_decode($user->settings('mood_type_id'));
+            $mood_types = MoodType::whereIn('id', $user_mood_type_ids)->get();
+        }
 
-                $user_mood_type_ids= json_decode($user->settings('mood_type_id'));
-                $mood_types = MoodType::whereIn('id', $user_mood_type_ids)->get();
-
-                return view('you.setup.'.$step, [
-                    'user' => $user,
-                    'mood_types' => $mood_types,
-                ]);
-
-                break;
-            default:
-
-                $mood_types = MoodType::all();
-                return view('you.setup.choose_types', [
-                    'user' => $user,
-                    'mood_types' => $mood_types,
-                ]);
-				break;
-		}
+        return view('you.setup.'.$step, [
+            'user' => $user,
+            'mood_types' => $mood_types,
+        ]);
     }
 
     /**
@@ -73,11 +61,8 @@ class SetupController extends Controller
         $step = $request->step;
 
         switch ($step) {
-            case 'define_types':
-                $next = $this->define_types($request);
-                break;
-            case 'set_targets':
-                $next = $this->set_targets($request);
+            case 'define_traits':
+                $next = $this->define_traits($request);
                 break;
             case 'set_periodicity':
 
@@ -117,85 +102,25 @@ class SetupController extends Controller
             'setupStep' => 'choose_types'
         ]);
 
-        return 'define_types';
+        return 'define_traits';
     }
 
-    private function define_types(Request $request) {
+    private function define_traits(Request $request) {
 
         $user = Auth::user();
 
-        foreach ($request->mood_type_description as $type) {
-            $descriptions[$type['id']] = $type['description'];
+
+        foreach ($request->mood_traits as $id) {
+            $mood_traits[] = $id;
         }
 
         $user->settings([
-            'mood_type_description' => json_encode($descriptions),
-            'setupStep' => 'define_types'
-        ]);
-
-        return 'set_targets';
-    }
-
-    private function set_targets(Request $request) {
-
-        $user = Auth::user();
-
-        foreach ($request->mood_type_target as $type) {
-            $targets[$type['id']] = $type['target'];
-        }
-
-        $user->settings([
-            'mood_type_target' => json_encode($targets),
-            'setupStep' => 'set_targets'
+            'mood_traits' => json_encode($mood_traits),
+            'setupStep' => 'define_traits'
         ]);
 
         return 'set_periodicity';
     }
 
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

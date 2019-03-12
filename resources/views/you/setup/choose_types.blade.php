@@ -7,15 +7,15 @@
 
 		<div class="max-w-xl mx-auto px-6 pb-6 ">
 			<div class="md:flex md:flex-row-reverse md:justify-between md:items-center">
-				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">1/3</span>
+				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">1/4</span>
 				<h1>👋 Hello {{ $user->firstname}}, let's get you started!</h1>
 			</div>
-			<p class="lg:w-3/4 text-xl leading-loose">Begin by picking the areas<span class="text-sm text-cta">(1)</span> that you'd like to track, later on we'll set your desired state<span class="text-sm text-cta">(2)</span> and configure how often you'd like to hear from us<span class="text-sm text-cta">(3)</span>.</p>
-
-
+			<p class="lg:w-3/4 text-xl leading-loose">
+				Begin by picking the areas<span class="text-sm text-cta">(1)</span> that you'd like to track and try to define some traits<span class="text-sm text-cta">(2)</span> that you want to change over time. Later on we'll configure how often<span class="text-sm text-cta">(3)</span> you want to us to give you feedback on your progression towards a healthier mood.
+			</p>
 
 			@if ($errors->any())
-			   	<div class="shadow-md bg-secondary w-full p-8 mb-8 text-white text-lg">
+			   	<div class="shadow-md bg-secondary w-full p-8 mb-8 text-white text-lg rounded">
 
 			        <ul>
 			            @foreach ($errors->all() as $error)
@@ -26,12 +26,14 @@
 			@endif
 
 			<form method="POST" action="{{route('you.setup', ['step' => 'choose_types'])}}">
-				{{ csrf_field() }}
+
+				@csrf
+
 				<div class="flex flex-wrap">
 
 					@foreach ($mood_types as $type)
 
-						<div class="checkbox mr-8 mb-8">
+						<div class="checkbox btn btn-primary mr-8 mb-8">
 							<input type="checkbox" name="mood_types[]" value="{{ $type->id }}" id="toggle_{{ $type->id }}"/>
 							<label for="toggle_{{ $type->id }}" class="flex items-center">
 
@@ -39,8 +41,6 @@
 								<i data-feather="check-square" class="off"></i>
 								<span>{{ $type->label }}</span>
 							</label>
-
-
 						</div>
 
 					@endforeach

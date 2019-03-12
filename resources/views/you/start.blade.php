@@ -19,7 +19,6 @@
 				@if(Session::has('status'))
 					<div class="shadow-md bg-secondary w-full p-8 mb-8 text-white text-lg">
 						{{ Session::get('status') }}
-
 					</div>
 
 				@else
@@ -106,11 +105,6 @@
 									        legend: {
 									            display: false
 									        },
-											horizontalLine: [{
-											 	y: {{$chart['target']}},
-											 	style: "#4CF298",
-											 	text: "Your target state for {{$chart['type']->label}} is {{$chart['target']}}"
-   											}],
 									        scales: {
 									            xAxes: [{
 													display:false,

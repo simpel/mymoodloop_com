@@ -38,7 +38,6 @@ class UserController extends Controller
         }
 
         $trackable_types_id = json_decode($user->settings('mood_type_id'));
-        $trackable_types_target = json_decode($user->settings('mood_type_target'));
 
 
 
@@ -59,7 +58,6 @@ class UserController extends Controller
             $charts[] = [
                 "type" => $type,
                 "data" => json_encode($data),
-                "target" => $trackable_types_target->$type_id,
                 "labels" => json_encode($labels)
             ];
         }

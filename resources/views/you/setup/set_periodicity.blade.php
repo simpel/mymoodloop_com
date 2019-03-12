@@ -8,7 +8,7 @@
 	<div class="bg-white mt-12">
 		<div class="max-w-xl mx-auto px-6 pb-6 ">
 			<div class="md:flex md:flex-row-reverse md:justify-between md:items-center">
-				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">3/3</span>
+				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">4/4</span>
 				<h1>👍 Nice one! That was the hard part.</h1>
 			</div>
 			<div class="lg:w-3/4">
@@ -19,7 +19,7 @@
 
 			<form method="POST" action="{{route('you.setup', ['step' => 'set_periodicity'])}}">
 
-				{{ csrf_field() }}
+				@csrf
 
 				<div class="flex flex-wrap">
 					<div class="checkbox mr-8 mb-8">

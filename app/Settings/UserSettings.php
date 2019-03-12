@@ -31,11 +31,7 @@ class UserSettings extends ResourceConfig
             'allowed' => ':any:',
             'default' => ''
         ],
-        'mood_type_description' => [
-            'allowed' => ':any:',
-            'default' => ''
-        ],
-        'mood_type_target' => [
+        'mood_traits' => [
             'allowed' => ':any:',
             'default' => ''
         ]

@@ -73,6 +73,10 @@
 		@apply font-normal cursor-pointer inline-block text-center text-sm px-4 py-2 leading-normal border border-cta rounded text-cta-darkest bg-cta;
 	}
 
+	.btn-primary {
+		@apply text-black border-primary bg-primary;
+	}
+
 	.btn-white {
 		@apply text-cta-darkest border-cta-darkest bg-white;
 	}
@@ -128,7 +132,7 @@
 	}
 
 	.checkbox label {
-		@apply px-8 py-4 rounded border border-primary text-primary-darkest cursor-pointer;
+		@apply cursor-pointer;
 	}
 
 	.checkbox label .on {
@@ -140,11 +144,11 @@
 	}
 
 	.checkbox input + label:hover {
-  		@apply text-primary-darkest;
+  		@apply text-black;
 	}
 
 	.checkbox input:checked + label {
-  		@apply bg-primary text-primary-darkest;
+  		@apply text-black;
 	}
 
 	.checkbox input:checked + label .on {

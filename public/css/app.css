@@ -633,6 +633,12 @@ a:hover {
   background-color: #ffbc50;
 }
 
+.btn-primary {
+  color: #22292f;
+  border-color: #44dada;
+  background-color: #44dada;
+}
+
 .btn-white {
   color: #4d3818;
   border-color: #4d3818;
@@ -717,14 +723,6 @@ input:focus {
 }
 
 .checkbox label {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-radius: .25rem;
-  border-width: 1px;
-  border-color: #44dada;
-  color: #144141;
   cursor: pointer;
 }
 
@@ -743,12 +741,11 @@ input:focus {
 }
 
 .checkbox input + label:hover {
-  color: #144141;
+  color: #22292f;
 }
 
 .checkbox input:checked + label {
-  background-color: #44dada;
-  color: #144141;
+  color: #22292f;
 }
 
 .checkbox input:checked + label .on {

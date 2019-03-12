@@ -12,6 +12,11 @@ class MoodType extends Model
 	   return $this->hasMany('App\Mood')->where('user_id', '=', Auth::id());
    	}
 
+    public function traits()
+   	{
+	   return $this->hasMany('App\MoodTrait');
+   	}
+
     public function all_moods()
    	{
 	   return $this->hasMany('App\Mood');

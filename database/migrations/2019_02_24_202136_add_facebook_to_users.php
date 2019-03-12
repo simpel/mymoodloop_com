@@ -16,6 +16,7 @@ class AddFacebookToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
 
             $table->renameColumn('avatar', 'google_avatar');
+            $table->renameColumn('avatar_original', 'google_avatar_original');
             $table->string('facebook_id');
             $table->string('facebook_avatar')->nullable();
             $table->string('facebook_avatar_original')->nullable();

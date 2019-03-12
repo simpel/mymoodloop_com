@@ -16,7 +16,8 @@
 
 <p class="text-center my-8">or</p>
 <form method="POST" action="{{ route('login') }}">
-	{{ csrf_field() }}
+
+	@csrf
 
 
 	<div class="mb-8">

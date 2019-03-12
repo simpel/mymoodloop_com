@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFacebookToUsers extends Migration
+class CreateTraitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddFacebookToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-
-            $table->renameColumn('avatar_original', 'google_avatar_original');
-            
+        Schema::create('traits', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->integer('mood_type_id')->unsigned();
+			$table->string('label');
+            $table->text('desc');
         });
     }
 
@@ -27,6 +29,6 @@ class AddFacebookToUsers extends Migration
      */
     public function down()
     {
-
+        Schema::dropIfExists('traits');
     }
 }
