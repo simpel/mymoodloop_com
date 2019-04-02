@@ -71,7 +71,7 @@ class SetupController extends Controller
                     'setupStep' => 'set_periodicity',
                     'setupIsDone' => true,
                 ]);
-
+                $request->session()->flash('done', __("🎉 That's it! Your setup is now complete."));
                 return redirect()->route('you');
                 break;
 

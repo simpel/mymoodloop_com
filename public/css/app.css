@@ -664,6 +664,12 @@ a:hover {
   text-decoration: underline;
 }
 
+.btn:active,
+.btn::focus,
+button:focus {
+  outline: none;
+}
+
 .btn-white:hover {
   background-color: #fff8ee;
 }
@@ -680,6 +686,16 @@ a:hover {
   padding-bottom: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.btn-shadow {
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.btn-shadow:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .status {
@@ -761,7 +777,8 @@ input[type=range] {
      -moz-appearance: none;
           appearance: none;
   width: 100%;
-  background-color: transparent;
+  background-color: #b4f0f0;
+  border-radius: 9999px;
   outline: 0;
 }
 
@@ -771,16 +788,12 @@ input[type=range]:active {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
   cursor: pointer;
-  background-color: #b4f0f0;
-  border-radius: 9999px;
-  border-width: 1px;
   outline: 0;
 }
 
 input[type=range]::-webkit-slider-thumb {
-  background-color: #44dada;
+  background-color: #22292f;
   cursor: pointer;
   -webkit-appearance: none;
           appearance: none;

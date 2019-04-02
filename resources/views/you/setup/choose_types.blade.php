@@ -7,7 +7,7 @@
 
 		<div class="max-w-xl mx-auto px-6 pb-6 ">
 			<div class="md:flex md:flex-row-reverse md:justify-between md:items-center">
-				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">1/4</span>
+				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">1/3</span>
 				<h1>👋 Hello {{ $user->firstname}}, let's get you started!</h1>
 			</div>
 			<p class="lg:w-3/4 text-xl leading-loose">
@@ -29,7 +29,7 @@
 
 				@csrf
 
-				<div class="flex flex-wrap">
+				<div class="flex flex-wrap shadow-lg w-full pt-8 pr-8 pl-8 my-8">
 
 					@foreach ($mood_types as $type)
 
@@ -46,7 +46,7 @@
 					@endforeach
 				</div>
 
-				<button type="submit" class="btn btn-large w-full mb-8">
+				<button type="submit" class="btn btn-large btn-shadow w-full mb-8">
 					{{ __("Let's create a desired state for you") }} <i data-feather="arrow-right" class="align-middle mr-2"></i>
 				</button>
 

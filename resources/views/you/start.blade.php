@@ -14,7 +14,11 @@
 				<h1>👋 Hi {{ $user->firstname }}</h1>
 
 
-
+				@if(Session::has('done'))
+					<div class="shadow-lg bg-secondary w-full p-8 mb-8 text-white text-lg">
+						{{ Session::get('done') }}
+					</div>
+				@endif
 
 				@if(Session::has('status'))
 					<div class="shadow-md bg-secondary w-full p-8 mb-8 text-white text-lg">
@@ -22,22 +26,25 @@
 					</div>
 
 				@else
-					<div class="shadow-md border w-full p-8 my-8">
+					<div class="shadow-lg w-full p-8 my-8 rounded">
 	                    <h2>Where has your focus been lately?</h2>
 
 	                    <form method="POST" action="{{route('moods.store')}}">
 
 		                    {{ csrf_field() }}
 		                    <div class="flex flex-wrap -mx-4">
-		                        @foreach ($charts as $chart)
+		                        @foreach ($moods as $mood)
 
 		        					<div class="w-full md:w-1/2 p-4">
 
-		        						<label for="mood_{{$chart["type"]->id}}" class="block mb-4">
-		        							{{$chart["type"]->label}}
-		        						</label>
+										<div class="flex justify-between">
+			        						<label for="mood_{{$mood["type"]->id}}" class="block mb-4">
+			        							{{$mood["type"]->label}}
+			        						</label>
+											<span id="value_type_{{$mood["type"]->id}}">0</span>
+										</div>
 
-		        						<input type="range" id="type_{{$chart["type"]->id}}" name="types[{{$chart["type"]->id}}]" value="0" min="0" max="100" class="w-full">
+		        						<input type="range" id="type_{{$mood["type"]->id}}" name="types[{{$mood["type"]->id}}]" value="0" min="-100" max="100" class="slider">
 		        					</div>
 
 		        				@endforeach
@@ -57,11 +64,10 @@
 	<div class="max-w-xl mx-auto px-6 pb-6 ">
 
 
-
 				<h1>🙏 Your moodloops</h1>
 
 				<div class="flex flex-wrap -mx-4">
-					@foreach ($charts as $chart)
+					@foreach ($moods as $chart)
 
 						<div class="w-full md:w-1/2 p-4 ">
 							<div class="shadow-md my-4 bg-white ">
@@ -112,7 +118,7 @@
 									            yAxes: [{
 									               display:false,
 													ticks: {
-														min: 0,
+														min: -100,
 													  	max: 100,
 													},
 									            }]

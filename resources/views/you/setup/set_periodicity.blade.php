@@ -8,7 +8,7 @@
 	<div class="bg-white mt-12">
 		<div class="max-w-xl mx-auto px-6 pb-6 ">
 			<div class="md:flex md:flex-row-reverse md:justify-between md:items-center">
-				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">4/4</span>
+				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">3/3</span>
 				<h1>👍 Nice one! That was the hard part.</h1>
 			</div>
 			<div class="lg:w-3/4">
@@ -21,7 +21,7 @@
 
 				@csrf
 
-				<div class="flex flex-wrap">
+				<div class="flex flex-wrap shadow-lg w-full pt-8 pr-8 pl-8 my-8">
 					<div class="checkbox mr-8 mb-8">
 						<input type="radio" class="checkbox" name="occurance" value="0" id="radio_0"/>
 						<label for="radio_0" class="flex items-center">
@@ -49,7 +49,7 @@
 					</div>
 				</div>
 
-				<button type="submit" class="btn btn-large w-full mb-8">
+				<button type="submit" class="btn btn-large btn-shadow w-full mb-8">
 					{{ __("We´re done!") }} <i data-feather="award" class="align-middle mr-2"></i>
 				</button>
 

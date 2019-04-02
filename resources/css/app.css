@@ -95,6 +95,11 @@
 		@apply text-cta-darkest cursor-pointer underline;
 	}
 
+	.btn:active, .btn::focus, button:focus {
+		outline: none;
+	}
+
+
 	.btn-white:hover {
 		@apply bg-cta-lightest;
 	}
@@ -105,6 +110,14 @@
 
 	.btn-large {
 		@apply text-lg py-4 px-8;
+	}
+
+	.btn-shadow {
+		@apply shadow-lg;
+	}
+
+	.btn-shadow:active {
+		@apply shadow-none;
 	}
 
 	.status {
@@ -161,7 +174,7 @@
 
 
 	input[type=range] {
-		@apply appearance-none w-full bg-transparent outline-none;
+		@apply appearance-none w-full bg-primary-lighter rounded-full outline-none;
 	}
 
 	input[type=range]:focus, input[type=range]:active {
@@ -169,11 +182,11 @@
 	}
 
 	input[type=range]::-webkit-slider-runnable-track {
-		@apply w-full cursor-pointer bg-primary-lighter rounded-full border outline-none;
+		@apply cursor-pointer outline-none;
 	}
 
 	input[type=range]::-webkit-slider-thumb {
-		@apply bg-primary cursor-pointer appearance-none w-4 h-6 rounded-full border-none outline-none;
+		@apply bg-black cursor-pointer appearance-none w-4 h-6 rounded-full border-none outline-none;
 	}
 
 	input[type=range]:active::-webkit-slider-thumb {

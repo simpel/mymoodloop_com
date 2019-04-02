@@ -55,7 +55,7 @@ class UserController extends Controller
 
 
 
-            $charts[] = [
+            $moods[] = [
                 "type" => $type,
                 "data" => json_encode($data),
                 "labels" => json_encode($labels)
@@ -64,7 +64,7 @@ class UserController extends Controller
 
         return view('you.start', [
             'user' => $user,
-            'charts' => $charts,
+            'moods' => $moods,
         ]);
 
 

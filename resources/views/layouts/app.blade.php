@@ -22,6 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+	@yield('css')
 
     <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
@@ -41,8 +42,8 @@
     <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+	<script src="{{ mix('js/app.js') }}"></script>
 
-@yield('scripts')
 </head>
 <body class="antialiased font-sans text-base">
     <div id="app">
@@ -55,8 +56,9 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<script src="{{ mix('js/app.js') }}"></script>
 
+
+@yield('scripts')
 
 </body>
 </html>

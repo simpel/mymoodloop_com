@@ -8,7 +8,7 @@
 	<div class="bg-white mt-12">
 		<div class="max-w-xl mx-auto px-6 pb-6 ">
 			<div class="md:flex md:flex-row-reverse md:justify-between md:items-center">
-				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">2/4</span>
+				<span class="status mb-2 md:mb-0 inline-block flex-no-grow">2/3</span>
 				<h1> 👊 Good work!</h1>
 			</div>
 			<div class="lg:w-3/4">
@@ -49,7 +49,7 @@
 
 				@endforeach
 
-				<button type="submit" class="btn btn-large w-full mb-8">
+				<button type="submit" class="btn btn-large btn-shadow w-full mb-8">
 					{{ __("Let's decide how often you'd like to hear from us") }} <i data-feather="arrow-right" class="align-middle mr-2"></i>
 				</button>
 
