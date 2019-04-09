@@ -6,6 +6,7 @@
  */
 
 require('./common/bootstrap');
+
 import Chart from 'chart.js';
 
 window.feather = require('feather-icons');
@@ -13,12 +14,10 @@ window.feather = require('feather-icons');
 const setMenuState = (e) => {
 	if (window.matchMedia('screen and (max-width: 768px)').matches) {
 		document.getElementById("menu").classList.add("hidden");
-
 	}
 }
 
 const toggleMenu = (e) => {
-	
 	document.getElementById("menu").classList.toggle("hidden");
 }
 
@@ -26,5 +25,3 @@ if(document.getElementById("menuBtn")) {
 	window.onload = setMenuState;
 	document.getElementById("menuBtn").onclick = toggleMenu;
 }
-
-feather.replace();

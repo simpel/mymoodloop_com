@@ -10,4 +10,9 @@ class Mood extends Model
    	{
 	   return $this->hasMany('App\MoodComment');
    	}
+
+	public function traits()
+   	{
+	   return $this->hasMany('App\MoodTrait');
+   	}
 }

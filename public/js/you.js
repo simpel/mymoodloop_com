@@ -60,26 +60,25 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 180);
+/******/ 	return __webpack_require__(__webpack_require__.s = 223);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 180:
+/***/ 223:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(181);
+module.exports = __webpack_require__(224);
 
 
 /***/ }),
 
-/***/ 181:
-/***/ (function(module, __webpack_exports__) {
-
-"use strict";
+/***/ 224:
+/***/ (function(module, exports) {
 
 
-var percentColors = [{ percentage: 0.0, color: { r: 0xf0, g: 0xb4, b: 0xb4 } }, { percentage: 0.5, color: { r: 0xb4, g: 0xf0, b: 0xf0 } }, { percentage: 1.0, color: { r: 0xb5, g: 0xF0, b: 0xb4 } }];
+
+var percentColors = [{ percentage: 0.0, color: { r: 0xf0, g: 0xb4, b: 0xb4 } }, { percentage: 0.25, color: { r: 0xF8, g: 0xF8, b: 0xb4 } }, { percentage: 0.5, color: { r: 0xb5, g: 0xF0, b: 0xb4 } }, { percentage: 0.75, color: { r: 0xF8, g: 0xF8, b: 0xb4 } }, { percentage: 1.0, color: { r: 0xf0, g: 0xb4, b: 0xb4 } }];
 
 var getColorForPercentage = function getColorForPercentage(percentage) {
     for (var i = 1; i < percentColors.length - 1; i++) {
@@ -113,7 +112,7 @@ var onInput = function onInput(e) {
     var color = getColorForPercentage(percentage);
     slider.setAttribute("style", "background-color:" + color + ";");
 
-    document.querySelector('#value_' + slider.id).innerHTML = slider.value;
+    //document.querySelector('#value_'+slider.id).innerHTML = slider.value;
 };
 
 document.querySelectorAll('.slider').forEach(function (slider) {

@@ -2,8 +2,11 @@
 
 var percentColors = [
     { percentage: 0.0, color: { r: 0xf0, g: 0xb4, b: 0xb4 } },
-    { percentage: 0.5, color: { r: 0xb4, g: 0xf0, b: 0xf0 } },
-    { percentage: 1.0, color: { r: 0xb5, g: 0xF0, b: 0xb4 } } ];
+    { percentage: 0.25, color: { r: 0xF8, g: 0xF8, b: 0xb4 } },
+	{ percentage: 0.5, color: { r: 0xb5, g: 0xF0, b: 0xb4 } },
+	{ percentage: 0.75, color: { r: 0xF8, g: 0xF8, b: 0xb4 } },
+	{ percentage: 1.0, color: { r: 0xf0, g: 0xb4, b: 0xb4 } }
+];
 
 var getColorForPercentage = percentage => {
     for (var i = 1; i < percentColors.length - 1; i++) {
@@ -33,14 +36,13 @@ var onInput = e => {
 	var minVal = Number(slider.min);
 	var maxVal = Number(slider.max);
 
-
 	var percentage = (slider.value-minVal) / (maxVal - minVal);
 
 	var color = getColorForPercentage(percentage);
 	slider.setAttribute("style", "background-color:"+color+";");
 
 
-	document.querySelector('#value_'+slider.id).innerHTML = slider.value;
+	//document.querySelector('#value_'+slider.id).innerHTML = slider.value;
 
 }
 

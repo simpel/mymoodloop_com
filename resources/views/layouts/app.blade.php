@@ -60,5 +60,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 @yield('scripts')
 
+	<script>
+      	feather.replace()
+    </script>
+
 </body>
 </html>

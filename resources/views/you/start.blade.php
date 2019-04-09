@@ -35,23 +35,47 @@
 		                    <div class="flex flex-wrap -mx-4">
 		                        @foreach ($moods as $mood)
 
-		        					<div class="w-full md:w-1/2 p-4">
+		        					<div class="w-full p-4">
 
-										<div class="flex justify-between">
-			        						<label for="mood_{{$mood["type"]->id}}" class="block mb-4">
-			        							{{$mood["type"]->label}}
-			        						</label>
-											<span id="value_type_{{$mood["type"]->id}}">0</span>
-										</div>
+										<h3 class="mb-0">
+										<label for="mood_{{$mood["type"]->id}}">
+
+											{{$mood["type"]->label}}
+
+		        						</label>
+										</h3>
+										<p class="flex mb-2 text-sm text-grey-dark">
+
+@foreach ($mood["type"]->traits as $trait)
+
+	{{ $trait->label }}@if(!$loop->last)
+		@if($loop->remaining == 1)
+			 <span class="text-grey whitespace-pre"> and </span>
+		@else
+			 <span class="text-grey whitespace-pre">, </span>
+		@endif
+	@else.@endif
+@endforeach
+
+
+										</p>
+
+
 
 		        						<input type="range" id="type_{{$mood["type"]->id}}" name="types[{{$mood["type"]->id}}]" value="0" min="-100" max="100" class="slider">
+																														<div class="flex justify-between mt-1 text-sm text-grey">
+											<div class="w-1/3">I'm not focusing enough</div>
+											<div class="w-1/3 text-center">I'm on track</div>
+											<div class="w-1/3 text-right">I'm focusing more than I should</div>
+										</div>
+
 		        					</div>
 
 		        				@endforeach
 		                    </div>
 		                    <div class="text-center">
 		                        <button type="submit" class="btn btn-large">
-		        					{{ __("Submit moods") }} <i data-feather="activity" class="align-middle ml-2"></i>
+		        					{{ __("Store my moods") }} <i data-feather="activity" class="align-middle ml-2"></i>
 		        				</button>
 		                    </div>
 
