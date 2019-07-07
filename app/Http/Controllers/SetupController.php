@@ -102,7 +102,7 @@ class SetupController extends Controller
             'setupStep' => 'choose_types'
         ]);
 
-        return 'define_traits';
+        return 'set_periodicity';
     }
 
     private function define_traits(Request $request) {

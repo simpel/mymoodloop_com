@@ -756,11 +756,37 @@ input:focus {
   display: none;
 }
 
-.checkbox input + label:hover {
-  color: #22292f;
+.checkbox label .box {
+  -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  padding: 2rem;
+  height: 100%;
 }
 
-.checkbox input:checked + label {
+.checkbox label .selector {
+  background-color: #dae1e7;
+  color: #22292f;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: .25rem;
+}
+
+.checkbox input:checked + label .box {
+  background-color: #ecfbfb;
+}
+
+.checkbox input:checked + label .selector {
+  background-color: #44dada;
   color: #22292f;
 }
 
@@ -4298,6 +4324,11 @@ input::-webkit-slider-thumb {
           box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
 }
 
+.shadow-xl {
+  -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+}
+
 .shadow-inner {
   -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
           box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -4328,6 +4359,11 @@ input::-webkit-slider-thumb {
           box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
 }
 
+.hover\:shadow-xl:hover {
+  -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+}
+
 .hover\:shadow-inner:hover {
   -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
           box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -4356,6 +4392,11 @@ input::-webkit-slider-thumb {
 .focus\:shadow-lg:focus {
   -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
           box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.focus\:shadow-xl:focus {
+  -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
 }
 
 .focus\:shadow-inner:focus {
@@ -8790,6 +8831,11 @@ input::-webkit-slider-thumb {
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
+  .sm\:shadow-xl {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+
   .sm\:shadow-inner {
     -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -8820,6 +8866,11 @@ input::-webkit-slider-thumb {
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
+  .sm\:hover\:shadow-xl:hover {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+
   .sm\:hover\:shadow-inner:hover {
     -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -8848,6 +8899,11 @@ input::-webkit-slider-thumb {
   .sm\:focus\:shadow-lg:focus {
     -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  }
+
+  .sm\:focus\:shadow-xl:focus {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
   }
 
   .sm\:focus\:shadow-inner:focus {
@@ -13260,6 +13316,11 @@ input::-webkit-slider-thumb {
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
+  .md\:shadow-xl {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+
   .md\:shadow-inner {
     -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -13290,6 +13351,11 @@ input::-webkit-slider-thumb {
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
+  .md\:hover\:shadow-xl:hover {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+
   .md\:hover\:shadow-inner:hover {
     -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -13318,6 +13384,11 @@ input::-webkit-slider-thumb {
   .md\:focus\:shadow-lg:focus {
     -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  }
+
+  .md\:focus\:shadow-xl:focus {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
   }
 
   .md\:focus\:shadow-inner:focus {
@@ -17730,6 +17801,11 @@ input::-webkit-slider-thumb {
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
+  .lg\:shadow-xl {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+
   .lg\:shadow-inner {
     -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -17760,6 +17836,11 @@ input::-webkit-slider-thumb {
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
+  .lg\:hover\:shadow-xl:hover {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+
   .lg\:hover\:shadow-inner:hover {
     -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -17788,6 +17869,11 @@ input::-webkit-slider-thumb {
   .lg\:focus\:shadow-lg:focus {
     -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  }
+
+  .lg\:focus\:shadow-xl:focus {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
   }
 
   .lg\:focus\:shadow-inner:focus {
@@ -22200,6 +22286,11 @@ input::-webkit-slider-thumb {
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
+  .xl\:shadow-xl {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+
   .xl\:shadow-inner {
     -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -22230,6 +22321,11 @@ input::-webkit-slider-thumb {
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
+  .xl\:hover\:shadow-xl:hover {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+
   .xl\:hover\:shadow-inner:hover {
     -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
@@ -22258,6 +22354,11 @@ input::-webkit-slider-thumb {
   .xl\:focus\:shadow-lg:focus {
     -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
             box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  }
+
+  .xl\:focus\:shadow-xl:focus {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
   }
 
   .xl\:focus\:shadow-inner:focus {

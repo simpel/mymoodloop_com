@@ -156,12 +156,20 @@
 		@apply w-6 h-6 mr-2 hidden;
 	}
 
-	.checkbox input + label:hover {
-  		@apply text-black;
+	.checkbox label .box {
+		@apply shadow-xl p-8 h-full;
 	}
 
-	.checkbox input:checked + label {
-  		@apply text-black;
+	.checkbox label .selector {
+		@apply bg-grey-light text-black content-center flex p-2 items-center justify-center rounded;
+	}
+
+	.checkbox input:checked + label .box {
+  		@apply bg-primary-lightest;
+	}
+
+	.checkbox input:checked + label .selector {
+		@apply bg-primary text-black;
 	}
 
 	.checkbox input:checked + label .on {
@@ -171,6 +179,9 @@
 	.checkbox input:checked + label .off {
   		@apply inline-block;
 	}
+
+
+
 
 
 	input[type=range] {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+
 use App\MoodType;
 use App\Mood;
 
@@ -48,7 +49,12 @@ class UserController extends Controller
             $data = array();
             $labels = array();
 
+			\Debugbar::info($type, $type->label);
+
             foreach ($type->moods as $mood) {
+
+
+
                 $data[] = $mood->value;
                 $labels[] = $mood->created_at->timestamp;
             }

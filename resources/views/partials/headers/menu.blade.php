@@ -17,7 +17,17 @@
 		<div class="text-sm md:flex-grow">
 			@auth
 				<a href="{{ route('you') }}" class="block mt-8 lg:mr-8 lg:inline-block lg:mt-0 text-{{ $color }}">{{ __('Home') }}</a>
-				<a href="{{ route('settings.index') }}" class="block mt-8 lg:mr-8 lg:inline-block lg:mt-0 text-{{ $color }}">{{ __('Your Settings') }}</a>
+
+
+				@if (app()->environment('local'))
+    				<a href="{{ route('settings.index') }}" class="block mt-8 lg:mr-8 lg:inline-block lg:mt-0 text-{{ $color }}">
+						{{ __('Your Settings') }}
+					</a>
+				@endif
+
+
+
+
 			@endauth
 		</div>
 

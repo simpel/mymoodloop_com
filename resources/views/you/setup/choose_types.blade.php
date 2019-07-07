@@ -29,19 +29,32 @@
 
 				@csrf
 
-				<div class="flex flex-wrap shadow-lg w-full pt-8 pr-8 pl-8 my-8">
+				<div class="flex flex-wrap justify-between -mx-4">
 
 					@foreach ($mood_types as $type)
+						<div class="w-1/2 p-4 my-4">
 
-						<div class="checkbox btn btn-primary mr-8 mb-8">
-							<input type="checkbox" name="mood_types[]" value="{{ $type->id }}" id="toggle_{{ $type->id }}"/>
-							<label for="toggle_{{ $type->id }}" class="flex items-center">
 
-								<i data-feather="square" class="on"></i>
-								<i data-feather="check-square" class="off"></i>
-								<span>{{ $type->label }}</span>
-							</label>
+
+								<div class="checkbox">
+									<input type="checkbox" name="mood_types[]" value="{{ $type->id }}" id="toggle_{{ $type->id }}"/>
+									<label for="toggle_{{ $type->id }}">
+
+										<div class="box">
+											<h2 class="mt-0">{{ $type->label }}</h2>
+											<p class="flex-grow">{{ $type->desc }}</p>
+
+											<div class="selector">
+												<i data-feather="square" class="on"></i>
+												<i data-feather="check-square" class="off"></i>
+												<span>Track this</span>
+											</div>
+										</div>
+									</label>
+
+							</div>
 						</div>
+
 
 					@endforeach
 				</div>
